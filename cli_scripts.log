@@ -1,0 +1,85 @@
+2017-05-02 10:52:22: Create pool/voume/snapshot/clone, then delete them, PASS!!
+2017-05-02 10:52:22: Pool p1 was deleted!
+2017-05-02 10:52:07: Volume v1 was deleted!
+2017-05-02 10:51:53: snapshot snap_1 was deleted!
+2017-05-02 10:51:40: Clone c_1 was deleted!
+2017-05-02 10:51:25: Start to delete existing clone/snapshot/volume/pool!!!
+2017-05-02 10:51:20: Clone c_1 was created!
+2017-05-02 10:51:10: snapshot snap_1 was created
+2017-05-02 10:50:58: Volume v1 was created
+2017-05-02 10:50:40: Pool p1 was created!
+2017-05-02 10:50:10: ======This is the 2 time(s)======
+2017-05-02 10:50:10: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-05-02 10:50:10: Create pool/voume/snapshot/clone, then delete them, PASS!!
+2017-05-02 10:50:10: Pool p0 was deleted!
+2017-05-02 10:49:54: Volume v0 was deleted!
+2017-05-02 10:49:40: snapshot snap_0 was deleted!
+2017-05-02 10:49:28: Clone c_0 was deleted!
+2017-05-02 10:49:12: Start to delete existing clone/snapshot/volume/pool!!!
+2017-05-02 10:49:07: Clone c_0 was created!
+2017-05-02 10:48:57: snapshot snap_0 was created
+2017-05-02 10:48:46: Volume v0 was created
+2017-05-02 10:48:27: Pool p0 was created!
+2017-05-02 10:47:56: ======This is the 1 time(s)======
+2017-05-02 10:47:56: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-05-02 10:46:37: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-05-02 10:40:15: Start to delete existing clone/snapshot/volume/pool!!!
+2017-05-02 10:40:10: Clone c_1 was created!
+2017-05-02 10:39:59: snapshot snap_1 was created
+2017-05-02 10:39:48: Volume v1 was created
+2017-05-02 10:39:30: Pool p1 was created!
+2017-05-02 10:39:00: ======This is the 3 times======
+2017-05-02 10:39:00: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-05-02 10:39:00: Create pool/voume/snapshot/clone, then delete them, PASS!!
+2017-05-02 10:39:00: Pool p0 was deleted!
+2017-05-02 10:38:44: Volume v0 was deleted!
+2017-05-02 10:38:30: snapshot snap_0 was deleted!
+2017-05-02 10:38:18: Clone c_0 was deleted!
+2017-05-02 10:38:04: Start to delete existing clone/snapshot/volume/pool!!!
+2017-05-02 10:37:59: Clone c_0 was created!
+2017-05-02 10:37:49: snapshot snap_0 was created
+2017-05-02 10:37:38: Volume v0 was created
+2017-05-02 10:37:19: Pool p0 was created!
+2017-05-02 10:36:48: ======This is the 1 times======
+2017-05-02 10:36:48: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-05-02 10:20:59: Create pool/voume/snapshot/clone, then delete them, PASS!!
+2017-05-02 10:20:59: Pool p0 was deleted!
+2017-05-02 10:20:43: Volume v0 was deleted!
+2017-05-02 10:20:29: snapshot snap_0 was deleted!
+2017-05-02 10:20:17: Clone c_0 was deleted!
+2017-05-02 10:20:03: Start to delete existing clone/snapshot/volume/pool!!!
+2017-05-02 10:19:58: Clone c_0 was created!
+2017-05-02 10:19:48: snapshot snap_0 was created
+2017-05-02 10:19:37: Volume v0 was created
+2017-05-02 10:19:18: Pool p0 was created!
+2017-05-02 10:18:47: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-28 09:55:36: Create pool/voume/snapshot/clone, then delete them, PASS!!
+2017-04-28 09:55:36: Pool p0 was deleted!
+2017-04-28 09:55:18: Volume v0 was deleted!
+2017-04-28 09:54:19: snapshot snap_1 was deleted!
+2017-04-28 09:54:04: Clone c_0 was deleted!
+2017-04-28 09:53:52: Start to delete existing clone/snapshot/volume/pool!!!
+2017-04-28 09:53:50: Clone c_0 was created!
+2017-04-28 09:53:39: snapshot snap_1 was created
+2017-04-28 09:53:24: Volume v0 was created
+2017-04-28 09:53:05: Pool p0 was created!
+2017-04-28 09:52:34: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-28 09:51:07: Pool p0 was deleted!
+2017-04-28 09:50:48: Volume v0 was deleted!
+2017-04-28 09:50:33: snapshot snap_1 was deleted!
+2017-04-28 09:50:20: Clone c_0 was deleted!
+2017-04-28 09:50:05: Start to delete existing clone/snapshot/volume/pool!!!
+2017-04-28 09:50:03: Clone c_0 was created!
+2017-04-28 09:49:53: snapshot snap_1 was created
+2017-04-28 09:49:36: Volume v0 was created
+2017-04-28 09:49:17: Pool p0 was created!
+2017-04-28 09:48:45: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-27 18:29:51: snapshot snap_1 was created
+2017-04-27 18:29:32: Volume v0 was created
+2017-04-27 18:29:13: Pool p0 was created!
+2017-04-27 18:28:42: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-27 18:24:40: Volume v0 was created
+2017-04-27 18:24:23: Pool p0 was created!
+2017-04-27 18:23:52: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-27 17:42:30: abcdefg
+2017-04-26 18:03:10: abcdefg

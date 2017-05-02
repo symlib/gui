@@ -1,0 +1,205 @@
+2017-04-26 17:35:20: Volume v0 was created
+2017-04-26 17:34:18: Pool p0 was created!
+2017-04-26 17:33:47: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 17:19:55: Pool p0 was created!
+2017-04-26 17:19:24: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 17:17:41: Pool p0 was created!
+2017-04-26 17:17:10: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 17:15:26: Pool p0 was created!
+2017-04-26 17:14:55: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 17:13:25: Pool p0 was created!
+2017-04-26 17:12:54: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 17:06:51: Pool p0 was created!
+2017-04-26 17:06:20: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 17:04:45: Pool p0 was created!
+2017-04-26 17:04:14: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 16:35:57: Pool p0 was created!
+2017-04-26 16:35:27: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 16:24:12: Pool p0 was created!
+2017-04-26 16:23:41: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 16:21:29: Pool p0 was created!
+2017-04-26 16:20:58: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 16:17:30: Pool p0 was created!
+2017-04-26 16:16:59: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 16:13:06: Pool p0 was created!
+2017-04-26 16:12:35: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 16:10:52: Pool p0 was created!
+2017-04-26 16:10:26: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 16:08:39: Pool p0 was created!
+2017-04-26 16:08:13: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 16:06:31: Pool p0 was created!
+2017-04-26 16:06:06: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 16:04:50: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-26 16:00:09: Pool p0 was created!
+2017-04-26 15:59:43: Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!
+2017-04-25 15:20:25: Start to creating new pool without new volumes
+2017-04-25 15:13:49: Start to creating new pool without new volumes
+2017-04-25 15:11:43: Start to creating new pool with new volumes
+2017-04-25 15:09:33: Start to creating new pool with new volumes
+2017-04-25 14:53:13: Start to creating new pool with new volumes
+2017-04-25 14:51:20: Start to creating new pool with new volumes
+2017-04-25 14:42:55: Create Pool p0, PASS
+2017-04-25 14:42:54: Create Pool p0, PASS
+2017-04-25 14:42:53: Create Pool p0, PASS
+2017-04-25 14:42:52: Create Pool p0, PASS
+2017-04-25 14:42:51: Create Pool p0, PASS
+2017-04-25 14:42:50: Create Pool p0, PASS
+2017-04-25 14:42:49: Create Pool p0, PASS
+2017-04-25 14:42:48: Create Pool p0, PASS
+2017-04-25 14:42:47: Create Pool p0, PASS
+2017-04-25 14:42:46: Create Pool p0, PASS
+2017-04-25 14:42:27: Start to creating new pool with new volumes
+2017-04-25 14:40:17: Create Pool p0, PASS
+2017-04-25 14:39:39: Start to creating new pool with new volumes
+2017-04-25 14:07:33: Start to creating new pool with new volumes
+2017-04-24 18:20:07: Start to creating new pool with new volumes
+2017-04-24 18:17:54: Start to creating new pool with new volumes
+2017-04-24 17:30:41: Start to creating new pool with new volumes
+2017-04-24 17:29:08: Start to creating new pool with new volumes
+2017-04-24 17:24:51: Start to creating new pool with new volumes
+2017-04-24 16:23:15: Start to creating new pool with new volumes
+2017-04-24 16:21:46: Start to creating new pool with new volumes
+2017-04-24 16:19:50: Start to creating new pool with new volumes
+2017-04-24 16:19:11: Start to creating new pool with new volumes
+2017-04-24 15:36:28: Start to creating new pool with new volumes
+2017-04-24 15:34:34: Start to creating new pool with new volumes
+2017-04-24 15:33:30: Start to creating new pool with new volumes
+2017-04-24 15:31:45: Start to creating new pool with new volumes
+2017-04-24 14:56:40: Start to creating new pool with new volumes
+2017-04-24 14:51:23: Start to creating new pool with new volumes
+2017-04-10 10:20:13: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-04-10 10:18:44: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-04-10 10:02:19: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-03-22 17:33:29: Vefiry pool sector has error
+2017-03-22 17:33:29: 'result': 'f'
+2017-03-22 17:33:23: Verify Pool Information title exist
+2017-03-22 17:33:23: 'result': 'f'
+2017-03-22 17:33:18: p1 was created successfully!
+2017-03-22 17:33:01: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-03-22 15:05:47: p1 was created successfully!
+2017-03-22 15:05:30: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-03-22 14:36:43: p1 was created successfully!
+2017-03-22 14:36:25: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-03-20 17:30:41: 'result': 'f'
+2017-03-20 17:30:41: Verify owner controller error
+2017-03-20 17:29:43: Start to creating new pool,PD1,2,3,4;raid=6,4u24bay.
+2017-03-20 17:28:12: Start to creating new pool,PD1,2,3,4;raid=6,4u24bay.
+2017-03-20 17:23:22: 'result': 'f'
+2017-03-20 17:23:22: Verify pool raid level error
+2017-03-20 17:22:47: Start to creating new pool,PD1,2,3,4;raid=6,4u24bay.
+2017-03-20 17:10:36: Start to creating new pool,PD1,2,3,4;raid=6,4u24bay.
+2017-03-20 17:06:29: 'result': 'f'
+2017-03-20 17:06:29: Verify pool raid level error
+2017-03-20 17:03:59: Start to creating new pool,PD1,2,3,4;raid=6,4u24bay.
+2017-03-20 16:53:37: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-20 16:51:23: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-20 16:46:48: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-20 16:42:36: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-20 16:41:09: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-20 16:36:37: 'result': 'f'
+2017-03-20 16:36:37: 'result': 'f'
+2017-03-20 16:36:37: 'result': 'f'
+2017-03-20 16:36:37: 'result': 'f'
+2017-03-20 16:36:37: 'result': 'f'
+2017-03-20 16:35:57: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-20 16:32:44: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-20 16:26:11: 'result': 'f'
+2017-03-20 16:26:11: 'result': 'f'
+2017-03-20 16:26:11: 'result': 'f'
+2017-03-20 16:26:11: 'result': 'f'
+2017-03-20 16:26:11: 'result': 'f'
+2017-03-20 16:25:42: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-17 11:24:47: Start to creating new pool with new volumes
+2017-03-17 11:07:48: Start to creating new pool with new volumes
+2017-03-15 17:15:15: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-15 17:12:29: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-15 16:56:01: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-15 16:11:52: Setting different sector for Pool,PASS
+2017-03-15 16:11:51: Setting pool sector=4 KB, pass
+2017-03-15 16:11:36: 'result': 'f'
+2017-03-15 16:11:04: Start to creating new pool with sector=4 kb
+2017-03-15 16:09:25: Setting different sector for Pool,PASS
+2017-03-15 16:09:24: Setting pool sector=4 KB, pass
+2017-03-15 16:09:09: 'result': 'f'
+2017-03-15 16:08:36: Start to creating new pool with sector=4 kb
+2017-03-15 16:05:35: Setting different sector for Pool,PASS
+2017-03-15 16:05:34: Setting pool sector=4 KB, pass
+2017-03-15 16:05:19: 'result': 'f'
+2017-03-15 16:04:50: Start to creating new pool with sector=4 kb
+2017-03-15 16:01:03: Start to creating new pool with sector=4 kb
+2017-03-15 16:01:02: Setting pool sector=1 KB, pass
+2017-03-15 16:00:18: Start to creating new pool with sector=1 kb
+2017-03-15 16:00:18: Setting pool sector=512 bytes, pass
+2017-03-15 15:59:34: Start to creating new pool with sector=512bytes
+2017-03-15 15:53:42: Start to creating new pool with sector=4 kb
+2017-03-15 15:53:41: Setting pool sector=1 KB, pass
+2017-03-15 15:52:54: Start to creating new pool with sector=1 kb
+2017-03-15 15:52:54: Setting pool sector=512 bytes, pass
+2017-03-15 15:52:08: Start to creating new pool with sector=512bytes
+2017-03-15 15:46:13: Setting pool sector=1 KB, pass
+2017-03-15 15:45:29: Start to creating new pool with sector=1 kb
+2017-03-15 15:45:29: Setting pool sector=512 bytes, pass
+2017-03-15 15:44:45: Start to creating new pool with sector=512bytes
+2017-03-15 15:41:54: Start to creating new pool with sector=1 kb
+2017-03-15 15:41:54: Setting pool sector=512 bytes, pass
+2017-03-15 15:41:10: Start to creating new pool with sector=512bytes
+2017-03-15 15:37:53: Start to creating new pool with sector=1 kb
+2017-03-15 15:37:53: 'result': 'f'
+2017-03-15 15:37:10: Start to creating new pool with sector=512bytes
+2017-03-15 15:32:46: 'result': 'f'
+2017-03-15 15:31:43: Start to creating new pool with sector=512bytes
+2017-03-15 15:28:32: Start to creating new pool with sector=512bytes
+2017-03-15 15:27:15: Start to creating new pool with sector=512bytes
+2017-03-15 15:25:34: Start to creating new pool with sector=512bytes
+2017-03-15 15:17:30: Start to creating new pool with sector=512bytes
+2017-03-15 15:16:55: Start to creating new pool with sector=512bytes
+2017-03-15 15:15:50: Start to creating new pool with sector=512bytes
+2017-03-15 15:11:59: Start to creating new pool with sector=512bytes
+2017-03-15 15:05:09: Start to creating new pool with sector=512bytes
+2017-03-15 14:50:20: Start to creating new pool with different sector
+2017-03-15 14:45:00: Start to creating new pool with different sector
+2017-03-15 14:43:09: Start to creating new pool with different sector
+2017-03-15 14:12:12: Start to creating pool with different sector
+2017-03-15 13:59:56: Start to creating pool with different sector
+2017-03-15 13:58:37: Start to creating pool with different sector
+2017-03-15 10:33:22: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-14 17:32:04: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-14 17:21:57: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-14 17:19:48: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-14 17:12:23: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-14 17:09:14: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-14 17:01:49: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-14 16:59:09: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-14 16:26:58: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-14 16:07:26: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-14 16:06:07: Start to creating new pool,PD1,2,3;raid=5,4u24bay.
+2017-03-14 14:51:58: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-14 14:06:29: p1 was created successfully!
+2017-03-14 14:06:12: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-03-14 14:03:55: p1 was created successfully!
+2017-03-14 14:03:38: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-03-14 14:01:00: p1 was created successfully!
+2017-03-14 14:00:43: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-03-14 13:59:20: p1 was created successfully!
+2017-03-14 13:59:02: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-03-14 13:57:34: p1 was created successfully!
+2017-03-14 13:57:17: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-03-14 13:54:02: p1 was created successfully!
+2017-03-14 13:53:44: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-03-13 13:33:54: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-13 13:29:46: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-13 11:28:38: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-13 11:24:33: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-13 11:02:09: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-13 10:59:55: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-13 10:31:50: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-13 10:21:07: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-13 10:06:01: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-13 09:59:51: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-10 18:28:34: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-10 18:24:56: Start to creating new volume on Pool 'p1',capacity=20gb
+2017-03-10 13:42:01: p1 was created successfully!
+2017-03-10 13:41:44: Start to creating new pool,PD1,2;raid=1,4u24bay.
+2017-03-10 13:34:09: p1 was created successfully!
+2017-03-10 13:33:52: Start to creating new pool,PD1,2;raid=1,4u24bay.
+
