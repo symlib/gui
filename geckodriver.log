@@ -1,0 +1,219 @@
+1493811693519	geckodriver	INFO	Listening on 127.0.0.1:51096
+1493811695862	geckodriver::marionette	INFO	Starting browser \\?\C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1493811696190	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/addons/XPIProvider.jsm: ["XPIProvider"]
+1493811696193	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/LightweightThemeManager.jsm: ["LightweightThemeManager"]
+1493811696197	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/addons/GMPProvider.jsm
+1493811696199	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/addons/PluginProvider.jsm
+1493811696200	addons.manager	DEBUG	Starting provider: XPIProvider
+1493811696200	addons.xpi	DEBUG	startup
+1493811696201	addons.xpi	INFO	SystemAddonInstallLocation directory is missing
+1493811696202	addons.xpi	DEBUG	checkForChanges
+1493811696203	addons.xpi	INFO	SystemAddonInstallLocation directory is missing
+1493811696203	addons.xpi	DEBUG	Loaded add-on state from prefs: {"app-system-defaults":{"aushelper@mozilla.org":{"d":"C:\\Program Files (x86)\\Mozilla Firefox\\browser\\features\\aushelper@mozilla.org.xpi","e":true,"v":"2.0","st":1490605413400},"e10srollout@mozilla.org":{"d":"C:\\Program Files (x86)\\Mozilla Firefox\\browser\\features\\e10srollout@mozilla.org.xpi","e":true,"v":"1.14","st":1491464407002},"firefox@getpocket.com":{"d":"C:\\Program Files (x86)\\Mozilla Firefox\\browser\\features\\firefox@getpocket.com.xpi","e":true,"v":"1.0.5","st":1490605413220},"webcompat@mozilla.org":{"d":"C:\\Program Files (x86)\\Mozilla Firefox\\browser\\features\\webcompat@mozilla.org.xpi","e":true,"v":"1.0","st":1490605413194}},"app-global":{"{972ce4c6-7e08-4474-a285-3208198ce6fd}":{"d":"C:\\Program Files (x86)\\Mozilla Firefox\\browser\\extensions\\{972ce4c6-7e08-4474-a285-3208198ce6fd}.xpi","e":true,"v":"53.0","st":1490605413597}}}
+1493811696204	addons.xpi	DEBUG	getInstallState changed: true, state: {}
+1493811696215	addons.xpi-utils	DEBUG	Opening XPI database C:\Users\Jacky\AppData\Local\Temp\rust_mozprofile.c1Fj4vUXtOFA\extensions.json
+1493811696217	addons.xpi-utils	DEBUG	Successfully read XPI database
+1493811696220	addons.xpi-utils	DEBUG	Add-on aushelper@mozilla.org removed from app-system-defaults
+1493811696222	DeferredSave.extensions.json	DEBUG	Save changes
+1493811696224	addons.xpi-utils	DEBUG	Add-on e10srollout@mozilla.org removed from app-system-defaults
+1493811696224	DeferredSave.extensions.json	DEBUG	Save changes
+1493811696224	addons.xpi-utils	DEBUG	Add-on firefox@getpocket.com removed from app-system-defaults
+1493811696224	DeferredSave.extensions.json	DEBUG	Save changes
+1493811696225	addons.xpi-utils	DEBUG	Add-on webcompat@mozilla.org removed from app-system-defaults
+1493811696225	DeferredSave.extensions.json	DEBUG	Save changes
+1493811696225	addons.xpi-utils	DEBUG	Add-on {972ce4c6-7e08-4474-a285-3208198ce6fd} removed from app-global
+1493811696225	DeferredSave.extensions.json	DEBUG	Save changes
+1493811696235	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files (x86)\Mozilla Firefox\browser\features\aushelper@mozilla.org.xpi
+1493811696240	addons.xpi	DEBUG	Calling bootstrap method uninstall on aushelper@mozilla.org version 2.0
+1493811696241	addons.manager	DEBUG	Registering startup change 'uninstalled' for aushelper@mozilla.org
+1493811696242	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files (x86)\Mozilla Firefox\browser\features\e10srollout@mozilla.org.xpi
+1493811696245	addons.xpi	DEBUG	Calling bootstrap method uninstall on e10srollout@mozilla.org version 1.14
+1493811696246	addons.manager	DEBUG	Registering startup change 'uninstalled' for e10srollout@mozilla.org
+1493811696247	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files (x86)\Mozilla Firefox\browser\features\firefox@getpocket.com.xpi
+1493811696251	addons.xpi	DEBUG	Calling bootstrap method uninstall on firefox@getpocket.com version 1.0.5
+1493811696251	addons.manager	DEBUG	Registering startup change 'uninstalled' for firefox@getpocket.com
+1493811696252	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files (x86)\Mozilla Firefox\browser\features\webcompat@mozilla.org.xpi
+1493811696254	addons.xpi	DEBUG	Calling bootstrap method uninstall on webcompat@mozilla.org version 1.0
+1493811696254	addons.manager	DEBUG	Registering startup change 'uninstalled' for webcompat@mozilla.org
+1493811696254	addons.manager	DEBUG	Registering startup change 'uninstalled' for {972ce4c6-7e08-4474-a285-3208198ce6fd}
+1493811696255	DeferredSave.extensions.json	DEBUG	Save changes
+1493811696255	addons.xpi	DEBUG	Updating database with changes to installed add-ons
+1493811696255	addons.xpi-utils	DEBUG	Updating add-on states
+1493811696256	addons.xpi-utils	DEBUG	Deleting add-ons list
+1493811696260	addons.manager	DEBUG	Registering shutdown blocker for XPIProvider
+1493811696260	addons.manager	DEBUG	Provider finished startup: XPIProvider
+1493811696260	addons.manager	DEBUG	Starting provider: LightweightThemeManager
+1493811696260	addons.manager	DEBUG	Registering shutdown blocker for LightweightThemeManager
+1493811696261	addons.manager	DEBUG	Provider finished startup: LightweightThemeManager
+1493811696261	addons.manager	DEBUG	Starting provider: GMPProvider
+1493811696268	addons.manager	DEBUG	Registering shutdown blocker for GMPProvider
+1493811696268	addons.manager	DEBUG	Provider finished startup: GMPProvider
+1493811696268	addons.manager	DEBUG	Starting provider: PluginProvider
+1493811696269	addons.manager	DEBUG	Registering shutdown blocker for PluginProvider
+1493811696269	addons.manager	DEBUG	Provider finished startup: PluginProvider
+1493811696270	addons.manager	DEBUG	Completed startup sequence
+1493811696548	DeferredSave.extensions.json	DEBUG	Starting timer
+1493811696576	addons.manager	DEBUG	Starting provider: PreviousExperimentProvider
+1493811696576	addons.manager	DEBUG	Registering shutdown blocker for PreviousExperimentProvider
+1493811696576	addons.manager	DEBUG	Provider finished startup: PreviousExperimentProvider
+1493811696625	DeferredSave.extensions.json	DEBUG	Starting write
+1493811696732	DeferredSave.extensions.json	DEBUG	Write succeeded
+1493811696732	addons.xpi-utils	DEBUG	XPI Database saved, setting schema version preference to 19
+1493811697662	Marionette	INFO	Listening on port 51102
+*** Blocklist::_preloadBlocklistFile: blocklist is disabled
+1493811697687	addons.manager	DEBUG	Starting provider: <unnamed-provider>
+1493811697687	addons.manager	DEBUG	Registering shutdown blocker for <unnamed-provider>
+1493811697688	addons.manager	DEBUG	Provider finished startup: <unnamed-provider>
+1493811697878	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://10.84.2.164/js/services/FirmwareUpdateStore.js, line 80: unreachable code after return statement
+1493811757452	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/GMP/53.0/20170411024320/WINNT_x86-msvc-x64/en-US/release/Windows_NT%206.1.1.0%20(x64)/default/default/update.xml
+1493811759697	addons.productaddons	INFO	Completed downloading document
+1493811760826	addons.productaddons	INFO	downloadXHR File download. status=200
+1493811760830	addons.productaddons	INFO	Downloaded file will be saved to C:\Users\Jacky\AppData\Local\Temp\tmpaddon-4433ce
+1493811770641	addons.productaddons	INFO	downloadXHR File download. status=200
+1493811770644	addons.productaddons	INFO	Downloaded file will be saved to C:\Users\Jacky\AppData\Local\Temp\tmpaddon-54c297
+JavaScript error: resource://app/modules/WindowsJumpLists.jsm, line 403: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+1493811268029	Marionette	INFO	New connections will no longer be accepted
+1493810796537	addons.manager	DEBUG	Calling shutdown blocker for PreviousExperimentProvider
+1493810796537	addons.manager	DEBUG	Calling shutdown blocker for <unnamed-provider>
+1493810796539	addons.xpi	DEBUG	Notifying XPI shutdown observers
+1493810796545	addons.manager	DEBUG	Async provider shutdown done
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+ error: resource://app/modules/WindowsJumpLists.jsm, line 403: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+1493810771746	DeferredSave.extensions.json	DEBUG	Save changes
+1493810771747	DeferredSave.extensions.json	DEBUG	Starting timer
+1493810771768	DeferredSave.extensions.json	DEBUG	Starting write
+1493810771775	DeferredSave.extensions.json	DEBUG	Write succeeded
+[GPU 10404] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8340] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8340] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1493810792038	addons.manager	DEBUG	shutdown
+1493810792039	addons.manager	DEBUG	Calling shutdown blocker for XPIProvider
+1493810792039	addons.xpi	DEBUG	shutdown
+1493810792039	addons.xpi-utils	DEBUG	shutdown
+1493810792040	addons.manager	DEBUG	Calling shutdown blocker for LightweightThemeManager
+1493810792041	addons.manager	DEBUG	Calling shutdown blocker for GMPProvider
+1493810792043	addons.manager	DEBUG	Calling shutdown blocker for PluginProvider
+1493810792044	addons.manager	DEBUG	Calling shutdown blocker for PreviousExperimentProvider
+1493810792045	addons.manager	DEBUG	Calling shutdown blocker for <unnamed-provider>
+1493810792047	addons.xpi	DEBUG	Notifying XPI shutdown observers
+1493810792052	addons.manager	DEBUG	Async provider shutdown done
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/enclosureComponent
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/enclosureCreate
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/enclosureDevice
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/gridLoading
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/formGroup
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/gearButton
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/lineChart
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/inlineEdit
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/inlineSelect
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/menubarLoading
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/navBarContainer
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/pageFrame
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/pieChart
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/pageHeader
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/progressbar
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/simpleDetail
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/sideBarContainer
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/singleButton
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/simpleList
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/smartTablePlugin
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/statusIcon
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/tabContainer
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/switchButtons
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/upload
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/titleBar
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/volumeUsage
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://10.84.2.164/lib/requirejs/require.js, line 163: Error: Script error for: directives/Validators
+http://requirejs.org/docs/errors.html#scripterror
+[GPU 8496] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9768] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9768] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1493799291210	addons.manager	DEBUG	shutdown
+1493799291211	addons.manager	DEBUG	Calling shutdown blocker for XPIProvider
+1493799291211	addons.xpi	DEBUG	shutdown
+1493799291212	addons.xpi-utils	DEBUG	shutdown
+1493799291213	addons.manager	DEBUG	Calling shutdown blocker for LightweightThemeManager
+1493799291214	addons.manager	DEBUG	Calling shutdown blocker for GMPProvider
+1493799291216	addons.manager	DEBUG	Calling shutdown blocker for PluginProvider
+1493799291219	addons.manager	DEBUG	Calling shutdown blocker for PreviousExperimentProvider
+1493799291219	addons.manager	DEBUG	Calling shutdown blocker for <unnamed-provider>
+1493799291222	addons.xpi	DEBUG	Notifying XPI shutdown observers
+1493799291229	addons.manager	DEBUG	Async provider shutdown done
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+ LightweightThemeManager
+1493712177338	addons.manager	DEBUG	Registering shutdown blocker for LightweightThemeManager
+1493712177338	addons.manager	DEBUG	Provider finished startup: LightweightThemeManager
+1493712177339	addons.manager	DEBUG	Starting provider: GMPProvider
+1493712177346	addons.manager	DEBUG	Registering shutdown blocker for GMPProvider
+1493712177346	addons.manager	DEBUG	Provider finished startup: GMPProvider
+1493712177346	addons.manager	DEBUG	Starting provider: PluginProvider
+1493712177347	addons.manager	DEBUG	Registering shutdown blocker for PluginProvider
+1493712177347	addons.manager	DEBUG	Provider finished startup: PluginProvider
+1493712177347	addons.manager	DEBUG	Completed startup sequence
+1493712177873	addons.manager	DEBUG	Starting provider: <unnamed-provider>
+1493712177873	addons.manager	DEBUG	Registering shutdown blocker for <unnamed-provider>
+1493712177874	addons.manager	DEBUG	Provider finished startup: <unnamed-provider>
+1493712177899	addons.manager	DEBUG	Starting provider: PreviousExperimentProvider
+1493712177899	addons.manager	DEBUG	Registering shutdown blocker for PreviousExperimentProvider
+1493712177899	addons.manager	DEBUG	Provider finished startup: PreviousExperimentProvider
+1493712177901	DeferredSave.extensions.json	DEBUG	Starting write
+1493712178781	DeferredSave.extensions.json	DEBUG	Write succeeded
+1493712178782	addons.xpi-utils	DEBUG	XPI Database saved, setting schema version preference to 19
+ERROR - ContextualIdentityService - Unknown version found in C:\Users\Jacky\AppData\Local\Temp\rust_mozprofile.GpCdRDDWN7Hj\containers.json
+1493712179756	Marionette	INFO	Listening on port 49543
+1493712180115	Marionette	WARN	Using deprecated data structure for setting timeouts
+JavaScript warning: https://10.84.2.164/js/services/FirmwareUpdateStore.js, line 80: unreachable code after return statement
+JavaScript warning: https://10.84.2.164/js/services/FirmwareUpdateStore.js, line 80: unreachable code after return statement
+1493712239494	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/GMP/53.0/20170411024320/WINNT_x86-msvc-x64/en-US/beta/Windows_NT%206.1.1.0%20(x64)/default/default/update.xml
+1493712240761	addons.productaddons	INFO	Completed downloading document
+1493712248985	addons.xpi	DEBUG	Calling bootstrap method shutdown on webcompat@mozilla.org version 1.0
+1493712248986	addons.xpi	DEBUG	Calling bootstrap method shutdown on firefox@getpocket.com version 1.0.5
+1493712248987	addons.xpi	DEBUG	Calling bootstrap method shutdown on e10srollout@mozilla.org version 1.14
+1493712248988	addons.xpi	DEBUG	Calling bootstrap method shutdown on aushelper@mozilla.org version 2.0
+1493712249047	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1493712249053	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1493712249190	addons.manager	DEBUG	shutdown
+1493712249190	addons.manager	DEBUG	Calling shutdown blocker for XPIProvider
+1493712249190	addons.xpi	DEBUG	shutdown
+1493712249191	addons.xpi-utils	DEBUG	shutdown
+1493712249191	addons.manager	DEBUG	Calling shutdown blocker for LightweightThemeManager
+1493712249192	addons.manager	DEBUG	Calling shutdown blocker for GMPProvider
+1493712249194	addons.manager	DEBUG	Calling shutdown blocker for PluginProvider
+1493712249195	addons.manager	DEBUG	Calling shutdown blocker for <unnamed-provider>
+1493712249196	addons.manager	DEBUG	Calling shutdown blocker for PreviousExperimentProvider
+1493712249200	addons.xpi	DEBUG	Notifying XPI shutdown observers
+1493712249203	addons.manager	DEBUG	Async provider shutdown done

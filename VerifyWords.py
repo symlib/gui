@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 import os
 import sys
-from print_result import printSF
+from to_log import tolog
 
 
 def VerifyWords(driver, wordlist):
@@ -18,9 +18,9 @@ def VerifyWords(driver, wordlist):
     for each in wordlist:
         time.sleep(0.5)
         if re.search(each, driver.find_element_by_css_selector("BODY").text):
-            printSF(each +' is verified.')
+            tolog(each +' is verified.')
         else:
-            printSF(each + ' is not verified.')
+            tolog(each + ' is not verified.')
             ValidationError = True
             break
     return ValidationError
