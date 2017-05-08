@@ -48,11 +48,10 @@ class CreateDeleteMulti(unittest.TestCase):
         poolnum0=poolnum1=volnum0=volnum1=snapnum0=snapnum1=clonenum0=clonenum1=0
         validatelist = list()
 
-        # try:
-        count = 10
-        while count > 1:
+        try:
+
             sleep(1)
-            print count
+
             driver.find_element_by_link_text("Pool").click()
             sleep(1)
             driver.find_element_by_xpath("//div[2]/button").click()
@@ -97,9 +96,9 @@ class CreateDeleteMulti(unittest.TestCase):
                 self.fail("time out")
             sleep(1)
             validatelist.append(VerifyWords(driver, (pool_name, raid)))
-
+            sleep(2)
             driver.find_element_by_xpath("//pr-gear-button/div/a").click()
-            sleep(1)
+            sleep(2)
             driver.find_element_by_link_text("View Detail").click()
             sleep(1)
             validatelist.append(VerifyWords(driver, (pool_name, raid, stripsize, sectorsize)))
@@ -221,7 +220,7 @@ class CreateDeleteMulti(unittest.TestCase):
                 self.fail("time out")
             sleep(1)
             driver.find_element_by_xpath("//td[2]/a/i").click()
-            sleep(1)
+            sleep(2)
             driver.find_element_by_xpath("//tr[3]/td[6]/pr-gear-button/div/a/b").click()
             sleep(1)
             driver.find_element_by_xpath("//tr[3]/td[6]/pr-gear-button/div/ul/li/a").click()
@@ -328,27 +327,27 @@ class CreateDeleteMulti(unittest.TestCase):
             sleep(1)
             driver.find_element_by_xpath("//button[@type='submit']").click()
 
-            # for i in range(10):
-            #     try:
-            #         if re.search(r"^[\s\S]*Pool was deleted successfully[\s\S]*$",
-            #                      driver.find_element_by_css_selector("BODY").text):
-            #             tolog("Pool %s was deleted successfully." % pool_name);
-            #             poolnum1 += 1;
-            #             break
-            #     except:
-            #         pass
-            #     time.sleep(1)
-            # else:
-            #     self.fail("time out")
+            for i in range(100):
+                try:
+                    if re.search(r"^[\s\S]*Pool was deleted successfully[\s\S]*$",
+                                 driver.find_element_by_css_selector("BODY").text):
+                        tolog("Pool %s was deleted successfully." % pool_name);
+                        poolnum1 += 1;
+                        break
+                except:
+                    pass
+                time.sleep(0.1)
+            else:
+                self.fail("time out")
 
-            count -= 1
-            print count
 
-        # except:
-        #     driver.get_screenshot_as_file("snapshot at " +
-        #                                       re.sub(':', '.', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(
-        #                                           time.time()))) + "create_delete_multi" + "." + "png")
-        #     tolog("Error: please refer to the screen-shot in the folder")
+
+        except:
+            Failflag = True
+            driver.get_screenshot_as_file("snapshot at " +
+                                              re.sub(':', '.', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(
+                                                  time.time()))) + "create_delete_multi" + "." + "png")
+            tolog("Error: please refer to the screen-shot in the folder")
 
 
         if poolnum0 == poolnum1:

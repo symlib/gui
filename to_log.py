@@ -1,8 +1,13 @@
-# -*- coding: utf-8 -*-
-#!/usr/bin/env python
+
+
 import time
+
+
 def tolog(strinfo):
+
+
         if strinfo!="'result': 'p'" or strinfo!="'result': 'f'":
+            #with open("/home/work/jackyl/Scripts/cli_scripts.log", "r+") as f:
             with open("./cli_scripts.log", "r+") as f:
                 content = f.read()
                 f.seek(0, 0)
@@ -16,8 +21,4 @@ def tolog(strinfo):
         fout.write(strinfo+ '\n')
 
         fout.close()
-
-if __name__ == "__main__":
-    tolog("abcdefg")
-
 
