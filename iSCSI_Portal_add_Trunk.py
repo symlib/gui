@@ -27,7 +27,7 @@ class ISCSIPortalAddVlan(unittest.TestCase):
         time.sleep(2)
         driver.find_element_by_link_text("iSCSI Management").click()
         time.sleep(2)
-        driver.find_element_by_link_text("Trunk").click()
+        driver.find_element_by_link_text("Portal").click()
         time.sleep(2)
         trunk_id = []
         for t in driver.find_element_by_xpath("//table/tbody").text.split("\n"):
