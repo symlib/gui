@@ -10,13 +10,10 @@ import re
 #This test is use Firefox browser
 
 def loginFirefox():
-
-    fp = webdriver.FirefoxProfile("C:\Users\Jacky\AppData\Roaming\Mozilla\Firefox\Profiles\\gzr3f98b.ds")
+    fp = webdriver.FirefoxProfile("C:/Users/hulda/AppData/Roaming/Mozilla/Firefox/Profiles/d8ot5jng.firefox")
     fp.accept_untrusted_certs = True
     driver = webdriver.Firefox(firefox_profile=fp)
-    subsys_url = "https://10.84.2.164"
-
-
+    subsys_url = "https://10.84.2.116"
     driver.implicitly_wait(30)
     driver.get(subsys_url)
     sleep(0.5)
@@ -28,30 +25,26 @@ def loginFirefox():
     driver.find_element_by_name('password').send_keys('password')
     sleep(0.5)
     driver.find_element_by_xpath('//*[@id="frame"]/div/div[2]/form/div[4]/button').click()
+    sleep(6)
     return driver
 
 def loginIE():
-
     driver = webdriver.Ie("c:\Python27\IEDriverServer.exe")
-    subsys_url = "https://10.84.2.164"
-
-
+    subsys_url = "https://10.84.2.116"
     driver.implicitly_wait(30)
     driver.get(subsys_url)
     sleep(2)
     driver.find_element_by_name('username').clear()
-
-
     driver.find_element_by_name('username').send_keys('administrator')
     driver.find_element_by_name('password').clear()
-
     driver.find_element_by_name('password').send_keys('password')
-
     driver.find_element_by_xpath('//*[@id="frame"]/div/div[2]/form/div[4]/button').click()
-
+    sleep(6)
     return driver
 
 
+if __name__ == "__main__":
+    loginFirefox()
 
 
 
