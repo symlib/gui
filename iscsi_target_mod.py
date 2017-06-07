@@ -8,17 +8,20 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest,re,random
 from print_result import printSF
-from login_ds import login
+from login_ds import loginFirefox
 from VerifyWords import VerifyWords
 from time import sleep
 from to_log import tolog
 import time
 
+Pass = "'result': 'p'"
+Fail = "'result': 'f'"
+
 class IscsiTargetMod(unittest.TestCase):
     def test_iscsi_target_mod(self):
-        Result = "'result': 'p'"
         ValError = []
-        self.driver = login()
+        Failflag = False
+        self.driver = loginFirefox()
         self.verificationErrors = []
         self.accept_next_alert = True
         driver = self.driver
@@ -64,14 +67,6 @@ class IscsiTargetMod(unittest.TestCase):
         else:
             driver.find_element_by_name("datadigest").click()
             datadigest = "Enable"
-        '''
-            if driver.find_element_by_name("bichapauth").is_selected():
-                driver.find_element_by_name("bichapauth").send_keys(Keys.SPACE)
-                bichapauth = "Disable"
-            else:
-                driver.find_element_by_name("bichapauth").click()
-                bichapauth = "Enable"
-            '''
         sleep(1)
         if driver.find_element_by_name("unichapauth").is_selected():
             driver.find_element_by_name("unichapauth").send_keys(Keys.SPACE)
@@ -82,9 +77,6 @@ class IscsiTargetMod(unittest.TestCase):
         sleep(1)
         driver.find_element_by_xpath("//button[@type='submit']").click()
         sleep(4)
-
-        #driver.find_element_by_link_text("Target").click()
-        #sleep(5)
         target_info = str(driver.find_element_by_xpath("//div[3]/div[2]/div/div/div[2]/div/div/div").text).split("\n")
         target_dict = {}
         for i in range(len(target_info)):
@@ -93,40 +85,42 @@ class IscsiTargetMod(unittest.TestCase):
         print "target dict is:", target_dict
         if target_dict.get("Alias:") == target_alias:
             tolog('iscsi target alias setting, PASS')
+            ValError.append("pass")
         else:
             ValError.append("fail")
             tolog('iscsi target alias setting, FAIL')
         if target_dict.get("Keep Alive:") == keepalive:
             tolog('iscsi target "Keep Alive" setting, PASS')
+            ValError.append("pass")
         else:
             ValError.append("fail")
             tolog('iscsi target "Keep Alive" setting, FAIL')
         if target_dict.get("Header Digest:") == headerdigest:
             tolog('iscsi target "Header Digest" setting, PASS')
+            ValError.append("pass")
         else:
             ValError.append("fail")
             tolog('iscsi target "Header Digest" setting, FAIL')
         if target_dict.get("Data Digest:") == datadigest:
             tolog('iscsi target "Data Digest" setting, PASS')
+            ValError.append("pass")
         else:
             ValError.append("fail")
             tolog('iscsi target "Data Digest" setting, FAIL')
-        '''
-        if target_dict.get("Bi-directional CHAP Authentication:") == target_alias:
-            print 'Bi - directional CHAP Authentication:'
-        else:
-            ValError.append("fail")
-        '''
         if target_dict.get("Uni-directional CHAP Authentication:") == unichapauth:
             tolog('iscsi target "Uni - directional CHAP Authentication" setting, PASS')
+            tolog("pass")
         else:
             ValError.append("fail")
             tolog('iscsi target "Uni - directional CHAP Authentication" setting, FAIL')
-        if "fail" in ValError:
-            Result = "'result': 'f'"
+
+        for val in ValError:
+            if val == "fail":
+                Failflag = True
+        if Failflag:
+            tolog(Fail)
         else:
-            Result = "'result': 'p'"
-        return Result
+            tolog(Pass)
 
     
     def is_element_present(self, how, what):
