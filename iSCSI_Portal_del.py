@@ -14,10 +14,10 @@ from to_log import tolog
 Pass="'result': 'p'"
 Fail="'result': 'f'"
 
-class ISCSITrunkView(unittest.TestCase):
-    def test_iscsi_trunk_view(self):
-        Failflag = False
+class ISCSIPortalDel(unittest.TestCase):
+    def test_iscsi_portal_del(self):
         ValError = []
+        Failflag = False
         self.driver = loginFirefox()
         self.verificationErrors = []
         self.accept_next_alert = True
@@ -26,22 +26,42 @@ class ISCSITrunkView(unittest.TestCase):
         time.sleep(2)
         driver.find_element_by_link_text("iSCSI Management").click()
         time.sleep(2)
-        driver.find_element_by_link_text("Trunk").click()
-        time.sleep(1)
-        trunk_entrys = str(driver.find_element_by_xpath("//table/tbody").text).split("\n")
-        if trunk_entrys:
-            tolog("Trunk list is : " + str(trunk_entrys))
-            ValError.append("pass")
+        driver.find_element_by_link_text("Portal").click()
+        time.sleep(2)
+        if "No iSCSI Portal detected" in driver.find_element_by_xpath("//table/tbody").text:
+            portal_count = 0
         else:
-            ValError.append("fail")
-        for val in ValError:
-            if val == "fail":
+            portal_count = len(driver.find_element_by_xpath("//table/tbody").text.split("\n"))
+        print "Portal list count is :",portal_count
+        if "No iSCSI Portal detected" in str(driver.find_element_by_xpath("//table/tbody").text.split("\n")):
+            tolog("No iSCSI Portal detected")
+        else:
+            while portal_count> 0 :
+                driver.find_element_by_xpath("//b").click()
+                time.sleep(1)
+                driver.find_element_by_link_text("Delete").click()
+                time.sleep(1)
+                driver.find_element_by_name("name").clear()
+                time.sleep(1)
+                driver.find_element_by_name("name").send_keys("confirm")
+                time.sleep(1)
+                driver.find_element_by_xpath("//button[@type='submit']").click()
+                portal_count -= 1
+                time.sleep(3)
+            if "No iSCSI Portal detected" in str(driver.find_element_by_xpath("//table/tbody").text.split("\n")):
+                tolog("All iSCSI Portal entry were deleted!")
+                ValError.append("pass")
+            else:
                 Failflag = True
-        if Failflag:
-            tolog(Fail)
-        else:
-            tolog(Pass)
-        return trunk_entrys
+                tolog("Failed to delete All iSCSI Portal entry!")
+                ValError.append("fail")
+            for val in ValError:
+                if val == "fail":
+                    Failflag = True
+            if Failflag:
+                tolog(Fail)
+            else:
+                tolog(Pass)
 
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)

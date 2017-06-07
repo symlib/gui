@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest,re,random,time
 from print_result import printSF
-from login_ds import login
+from login_ds import loginFirefox
 from VerifyWords import VerifyWords
 from to_log import tolog
 Pass="'result': 'p'"
@@ -17,8 +17,9 @@ Fail="'result': 'f'"
 class ISCSIPortalView(unittest.TestCase):
     def test_iscsi_portal_view(self):
         ValError = []
+        Failflag = False
         portal_dict = {}
-        self.driver = login()
+        self.driver = loginFirefox()
         self.verificationErrors = []
         self.accept_next_alert = True
         driver = self.driver
@@ -37,9 +38,16 @@ class ISCSIPortalView(unittest.TestCase):
                 portal_dict[str(p).split()[0]] = str(p).split()[2:6]
             if portal_dict:
                 tolog("Portal list is: "+ str(portal_dict))
-                tolog(Pass)
+                ValError.append("pass")
             else:
-                tolog(Fail)
+                ValError.append("fail")
+        for val in ValError:
+            if val == "fail":
+                Failflag = True
+        if Failflag:
+            tolog(Fail)
+        else:
+            tolog(Pass)
         return portal_dict
 
     

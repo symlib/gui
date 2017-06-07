@@ -15,11 +15,11 @@ from to_log import tolog
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
-
-class ISCSITrunkDel(unittest.TestCase):
-    def test_iscsi_trunk_del(self):
+class ISCSILoggedInDeviceAddtoinitiator(unittest.TestCase):
+    def test_iscsi_loggedindevice_addtoinitiator(self):
         ValError = []
         Failflag = False
+        portal_dict = {}
         self.driver = loginFirefox()
         self.verificationErrors = []
         self.accept_next_alert = True
@@ -27,46 +27,37 @@ class ISCSITrunkDel(unittest.TestCase):
         driver.find_element_by_link_text("Device").click()
         time.sleep(2)
         driver.find_element_by_link_text("iSCSI Management").click()
+        time.sleep(1)
+        driver.find_element_by_xpath("//ul/li[9]/ul/li[8]/a").click()
         time.sleep(2)
-        driver.find_element_by_link_text("Trunk").click()
-        time.sleep(2)
-        if "No iSCSI Trunk detected" in driver.find_element_by_xpath("//table/tbody").text:
-            trunk_count = 0
-        else:
-            trunk_count = len(driver.find_element_by_xpath("//table/tbody").text.split("\n"))
-        tolog("Trunk entrys count is :%d" % trunk_count)
-        if "No iSCSI Trunk detected" in str(driver.find_element_by_xpath("//table/tbody").text.split("\n")):
-            tolog("No iSCSI Trunk detected")
+        if "No iSCSI Initiator detected." in driver.find_element_by_xpath("//table/tbody").text:
+            tolog("No logged in device was detected")
             ValError.append("pass")
         else:
-            while trunk_count > 0:
-                driver.find_element_by_xpath("//b").click()
-                time.sleep(1)
-                driver.find_element_by_link_text("Delete").click()
-                time.sleep(1)
-                driver.find_element_by_name("name").clear()
-                time.sleep(1)
-                driver.find_element_by_name("name").send_keys("confirm")
-                time.sleep(1)
-                driver.find_element_by_xpath("//button[@type='submit']").click()
-                trunk_count -= 1
-                time.sleep(3)
-            if "No iSCSI Trunk detected" in str(driver.find_element_by_xpath("//table/tbody").text.split("\n")):
-                tolog("All iSCSI Trunk entry were deleted!")
-                ValError.append("pass")
-            elif "Operation failed as the trunk specified has some portals configured on it" in driver.find_element_by_xpath("//body/div/div/div[5]/div").text:
-                ValError.append("pass")
-                tolog("Failed to delete trunk.Operation failed as the trunk specified has some portals configured on it")
-            else:
-                tolog("Failed to delete All iSCSI Trunk entry!")
-                ValError.append("fail")
-        for val in ValError:
-            if val == "fail":
+            device_count = len(driver.find_element_by_xpath("//table/tbody").text.split("\n"))
+            tolog("Start to add device to initiator!")
+            for k in range(device_count):
+                if driver.find_element_by_xpath("//table/tbody/tr[%s]/td[1]/input" % str(k +2)).is_enabled():
+                    driver.find_element_by_xpath("//table/tbody/tr[%s]/td[1]/input" % str(k + 2)).click()
+                    time.sleep(1)
+                    driver.find_element_by_xpath("//button[@title='Add to Initiator List']").click()
+                    time.sleep(5)
+                    tolog("Check whether Device was added to initiator")
+                    if driver.find_element_by_xpath("//table/tbody/tr[%s]/td[1]/input" % str(k + 2)).is_enabled() == False:
+                        ValError.append("pass")
+                        tolog("Add device to initiator, PASS")
+                    else:
+                        ValError.append("fail")
+                        tolog("Add device to initiator, FAIL")
+        for err in ValError:
+            if err == "fail":
                 Failflag = True
+                break
         if Failflag:
             tolog(Fail)
         else:
             tolog(Pass)
+
 
     def is_element_present(self, how, what):
         try:

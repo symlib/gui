@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, re, random, time
-#from print_result import printSF
+# from print_result import printSF
 from login_ds import loginFirefox
 from VerifyWords import VerifyWords
 from to_log import tolog
@@ -15,8 +15,9 @@ from to_log import tolog
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
-class ISCSITrunkAdd(unittest.TestCase):
-    def test_iscsi_trunk_add(self):
+
+class ISCSITrunkMod(unittest.TestCase):
+    def test_iscsi_trunk_mod(self):
         ValError = []
         Failflag = False
         self.driver = loginFirefox()
@@ -31,6 +32,8 @@ class ISCSITrunkAdd(unittest.TestCase):
         time.sleep(2)
         if "No iSCSI Trunk detected." in driver.find_element_by_xpath("//table/tbody").text:
             tru_list_1 = 0
+            tolog("No Trunk entry need to modify")
+            ValError.append("pass")
         else:
             tru_list_1 = len(driver.find_element_by_xpath("//table/tbody").text.split("\n"))
         driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
@@ -89,15 +92,19 @@ class ISCSITrunkAdd(unittest.TestCase):
             tolog(Pass)
 
     def is_element_present(self, how, what):
-        try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException as e: return False
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
         return True
-    
+
     def is_alert_present(self):
-        try: self.driver.switch_to_alert()
-        except NoAlertPresentException as e: return False
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
         return True
-    
+
     def close_alert_and_get_its_text(self):
         try:
             alert = self.driver.switch_to_alert()
@@ -107,11 +114,13 @@ class ISCSITrunkAdd(unittest.TestCase):
             else:
                 alert.dismiss()
             return alert_text
-        finally: self.accept_next_alert = True
-    
+        finally:
+            self.accept_next_alert = True
+
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
+
 
 if __name__ == "__main__":
     unittest.main()

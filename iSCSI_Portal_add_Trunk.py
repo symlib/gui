@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, re, random, time
 #from print_result import printSF
-from login_ds import login
+from login_ds import loginFirefox
 from VerifyWords import VerifyWords
 from to_log import tolog
 
@@ -19,7 +19,7 @@ class ISCSIPortalAddVlan(unittest.TestCase):
     def test_iscsi_portal_add_trunk(self):
         ValError = []
         Failflag = False
-        self.driver = login()
+        self.driver = loginFirefox()
         self.verificationErrors = []
         self.accept_next_alert = True
         driver = self.driver
@@ -60,14 +60,20 @@ class ISCSIPortalAddVlan(unittest.TestCase):
             portal_entry2 = len(driver.find_element_by_xpath("//table/tbody").text.split("\n"))
             if portal_entry2 > portal_entry1:
                 tolog("Add iSCSI Portal,Associated Port Type:Trunk, succeed")
-                tolog(Pass)
+                ValError.append("pass")
             else:
                 tolog("Add iSCSI Portal,Associated Port Type:Trunk, failed")
-                Failflag = True
-                tolog(Fail)
+                ValError.append("fail")
         else:
             tolog("Add iSCSI Portal,but 'Associated Port Type:Trunk' is grey, So user can't create Trunk Portal")
         time.sleep(1)
+        for val in ValError:
+            if val == "fail":
+                Failflag = True
+        if Failflag:
+            tolog(Fail)
+        else:
+            tolog(Pass)
 
 
 

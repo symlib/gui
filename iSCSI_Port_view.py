@@ -8,19 +8,19 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest,re,random
 from print_result import printSF
-from login_ds import login
+from login_ds import loginFirefox
 from VerifyWords import VerifyWords
 from to_log import tolog
 import time
 
+Pass = "'result': 'p'"
+Fail = "'result': 'f'"
 
 class ISCSIPortView(unittest.TestCase):
     def test_iscsi_port_view(self):
-        Pass = "'result': 'p'"
-        Fail = "'result': 'f'"
         Failflag = False
         ValError = []
-        self.driver = login()
+        self.driver = loginFirefox()
         self.verificationErrors = []
         self.accept_next_alert = True
         driver = self.driver
@@ -39,56 +39,48 @@ class ISCSIPortView(unittest.TestCase):
             ValError.append("pass")
             tolog("Verify title Basic Information, pass")
         else:
-            Failflag = True
             ValError.append("fail")
             tolog("Verify title Basic Information, Fail")
-        if driver.find_element_by_xpath("//dt").text == "Port Id:":
-            tolog("Verify item Port Id, pass")
+        if driver.find_element_by_xpath("//dl[1]/dt[1]").text == "Port ID:":
+            tolog("Verify item Port ID, pass")
             ValError.append("pass")
         else:
-            Failflag = True
             ValError.append("fail")
             tolog("Verify item Port Id ,Fail")
-        if driver.find_element_by_xpath("//dt[2]").text == "Controller ID:":
+        if driver.find_element_by_xpath("//dl[1]/dt[2]").text == "Controller ID:":
             tolog("Verify item Controller ID, pass")
             ValError.append("pass")
         else:
-            Failflag = True
             ValError.append("fail")
             tolog("Verify item Controller ID ,Fail")
-        if driver.find_element_by_xpath("//dl[2]/dt").text == "Jumbo Frame:":
+        if driver.find_element_by_xpath("//dl[2]/dt[1]").text == "Jumbo Frame:":
             tolog("Verify item Jumbo Frame, pass")
             ValError.append("pass")
         else:
-            Failflag = True
             ValError.append("fail")
             tolog("Verify item Jumbo Frame ,Fail")
         if driver.find_element_by_xpath("//dl[2]/dt[2]").text == "Port:":
             tolog("Verify item Port, pass")
             ValError.append("pass")
         else:
-            Failflag = True
             ValError.append("fail")
             tolog("Verify item Port ,Fail")
-        if driver.find_element_by_xpath("//dl[3]/dt").text == "Primary MAC Address:":
+        if driver.find_element_by_xpath("//dl[3]/dt[1]").text == "Primary MAC Address:":
             tolog("Verify item Primary MAC Address, pass")
             ValError.append("pass")
         else:
-            Failflag = True
             ValError.append("fail")
             tolog("Verify item Primary MAC Address ,Fail")
         if driver.find_element_by_xpath("//dl[3]/dt[2]").text == "Max Support Speed:":
             tolog("Verify item Max Support Speed, pass")
             ValError.append("pass")
         else:
-            Failflag = True
             ValError.append("fail")
             tolog("Verify item Max Support Speed ,Fail")
-        if driver.find_element_by_xpath("//dl[4]/dt").text == "Current Speed:":
+        if driver.find_element_by_xpath("//dl[4]/dt[1]").text == "Current Speed:":
             tolog("Verify item Current Speed, pass")
             ValError.append("pass")
         else:
-            Failflag = True
             ValError.append("fail")
             tolog("Verify item Current Speed ,Fail")
         if driver.find_element_by_xpath("//dl[4]/dt[2]").text == "Assigned Portals:":
@@ -98,11 +90,14 @@ class ISCSIPortView(unittest.TestCase):
             Failflag = True
             ValError.append("fail")
             tolog("Verify item Assigned Portals ,Fail")
-        if "fail" in ValError:
+        for err in ValError:
+            if err == "fail":
+                Failflag = True
+                break
+        if Failflag:
             tolog(Fail)
         else:
             tolog(Pass)
-
     
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
