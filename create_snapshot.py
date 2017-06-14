@@ -19,8 +19,6 @@ Pass="'result': 'p'"
 Fail="'result': 'f'"
 
 class CreateSnapshot(unittest.TestCase):
-
-
     def test_create_snapshot(self):
         Failflag = False
         self.driver = loginFirefox()
@@ -28,26 +26,9 @@ class CreateSnapshot(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
         driver = self.driver
-
-        strip_size = ["64 KB", "128 KB", "256 KB", "512 KB", "1 MB"]
-        sector_size = ["512 Bytes", "1 KB", "2 KB", "4 KB"]
-
-        Prefer_ctrl = [1, 2]
-        disklist = ["1", "3", "4", "5", "6", "8", "9", "10", "11", "12"]
-
-        volume_capacity = str(random.randint(16, 10000))
-        block_size = ['512 Bytes', '1 KB', '2 KB', '4 KB', '8 KB', '16 KB', '32 KB', '64 KB', '128 KB']
-        volume_sector = ['512 Bytes', '1 KB', '2 KB', '4 KB']
-
-        raid_level = ["RAID1", "RAID5", "RAID6"]
-
-
         sleep(1)
-
-
-        validatelist = list()
+        validatelist = []
         try:
-
             driver.find_element_by_xpath(".//*[@id='sidebar-menu']/ul/li[4]/a").click()
             driver.find_element_by_link_text("Volume").click()
             driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()  # click v0
@@ -62,13 +43,11 @@ class CreateSnapshot(unittest.TestCase):
             driver.find_element_by_name("name").send_keys(snapshot_name)
             sleep(1)
             driver.find_element_by_xpath("//button[@type='submit']").click()
-
             for i in range(60):
                 try:
                     if re.search(r"^[\s\S]*Snapshot was added successfully.[\s\S]*$",
                                  driver.find_element_by_css_selector("BODY").text):
                         tolog("Snapshot %s was added successfully. " %snapshot_name);
-
                         break
                 except:
                     pass
@@ -83,15 +62,11 @@ class CreateSnapshot(unittest.TestCase):
             driver.find_element_by_link_text("View Detail").click()
             sleep(1)
             validatelist.append(VerifyWords(driver, a))
-
-
-
         except:
             driver.get_screenshot_as_file("snapshot at " +
                                           re.sub(':', '.', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(
                                               time.time()))) + "create_delete_multi" + "." + "png")
             tolog("Error: please refer to the screen-shot in the folder")
-
         for val in validatelist:
             if val:
                 Failflag = True

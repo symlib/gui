@@ -19,8 +19,6 @@ Pass="'result': 'p'"
 Fail="'result': 'f'"
 
 class CreateClone(unittest.TestCase):
-
-
     def test_create_clone(self):
         Failflag = False
         self.driver = loginFirefox()
@@ -28,23 +26,7 @@ class CreateClone(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
         driver = self.driver
-
-        strip_size = ["64 KB", "128 KB", "256 KB", "512 KB", "1 MB"]
-        sector_size = ["512 Bytes", "1 KB", "2 KB", "4 KB"]
-
-        Prefer_ctrl = [1, 2]
-        disklist = ["1", "3", "4", "5", "6", "8", "9", "10", "11", "12"]
-
-        volume_capacity = str(random.randint(16, 10000))
-        block_size = ['512 Bytes', '1 KB', '2 KB', '4 KB', '8 KB', '16 KB', '32 KB', '64 KB', '128 KB']
-        volume_sector = ['512 Bytes', '1 KB', '2 KB', '4 KB']
-
-        raid_level = ["RAID1", "RAID5", "RAID6"]
-
-
-        sleep(1)
-
-        validatelist = list()
+        validatelist = []
         try:
             driver.find_element_by_xpath("//div[2]/div/ul/li[4]/a/span").click()
             sleep(1)
@@ -67,32 +49,23 @@ class CreateClone(unittest.TestCase):
                     if re.search(r"^[\s\S]*Clone was added successfully.[\s\S]*$",
                                  driver.find_element_by_css_selector("BODY").text):
                         tolog("Clone %s was added successfully. " %clone_name);
-
                         break
                 except:
                     pass
                 time.sleep(1)
             else:
                 self.fail("time out")
-
             driver.find_element_by_xpath("//td[2]/a/i").click()
             driver.find_element_by_xpath("//tr[3]/td[6]/pr-gear-button/div/a/b").click()
             sleep(1)
             driver.find_element_by_xpath("//tr[3]/td[6]/pr-gear-button/div/ul/li/a").click()
-
-            # driver.find_element_by_xpath("//tr[3]/td[6]/pr-gear-button/div/a").click()
-            # driver.find_element_by_xpath("//tr[3]/td[6]/pr-gear-button/div/ul/li/a").click()
             sleep(1)
             validatelist.append(VerifyWords(driver, (clone_name,"volume")))
-
-
-
         except:
             driver.get_screenshot_as_file("snapshot at " +
                                           re.sub(':', '.', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(
                                               time.time()))) + "create_delete_multi" + "." + "png")
             tolog("Error: please refer to the screen-shot in the folder")
-
         for val in validatelist:
             if val:
                 Failflag = True

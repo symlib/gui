@@ -28,20 +28,6 @@ class DeleteClone(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
         driver = self.driver
-
-        strip_size = ["64 KB", "128 KB", "256 KB", "512 KB", "1 MB"]
-        sector_size = ["512 Bytes", "1 KB", "2 KB", "4 KB"]
-
-        Prefer_ctrl = [1, 2]
-        disklist = ["1", "3", "4", "5", "6", "8", "9", "10", "11", "12"]
-
-        volume_capacity = str(random.randint(16, 10000))
-        block_size = ['512 Bytes', '1 KB', '2 KB', '4 KB', '8 KB', '16 KB', '32 KB', '64 KB', '128 KB']
-        volume_sector = ['512 Bytes', '1 KB', '2 KB', '4 KB']
-
-        raid_level = ["RAID1", "RAID5", "RAID6"]
-
-
         sleep(1)
 
         validatelist = list()
@@ -72,9 +58,6 @@ class DeleteClone(unittest.TestCase):
                 time.sleep(1)
             else:
                 self.fail("time out")
-
-            #
-
         except:
             driver.get_screenshot_as_file("snapshot at " +
                                           re.sub(':', '.', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(

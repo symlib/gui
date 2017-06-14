@@ -10,75 +10,52 @@ import unittest, re, random
 from login_ds import loginFirefox
 from login_ds import loginIE
 from VerifyWords import VerifyWords
-from time import sleep
 from to_log import tolog
 from namegenerator import random_key
-
 import time
 Pass="'result': 'p'"
 Fail="'result': 'f'"
 
 class CreateVolume(unittest.TestCase):
-
-
     def test_create_volume(self):
         Failflag = False
+
         self.driver = loginFirefox()
-        # self.driver.implicitly_wait(30)
         self.verificationErrors = []
         self.accept_next_alert = True
         driver = self.driver
-
-        strip_size = ["64 KB", "128 KB", "256 KB", "512 KB", "1 MB"]
-        sector_size = ["512 Bytes", "1 KB", "2 KB", "4 KB"]
-
-        Prefer_ctrl = [1, 2]
-        disklist = ["1", "3", "4", "5", "6", "8", "9", "10", "11", "12"]
-
-        volume_capacity = str(random.randint(16, 10000))
+        volume_capacity = str(random.randint(1, 1000000))
         block_size = ['512 Bytes', '1 KB', '2 KB', '4 KB', '8 KB', '16 KB', '32 KB', '64 KB', '128 KB']
         volume_sector = ['512 Bytes', '1 KB', '2 KB', '4 KB']
-
         raid_level = ["RAID1", "RAID5", "RAID6"]
-
         tolog("Start to creating new pool/volume/snapshot/clone,then delete clone/snapshot/volume/pool!")
-        # driver.find_element_by_link_text("Pool").click()
-        # driver.find_element_by_xpath("//div[2]/button").click()
-        # sleep(1)
-        #
-        # poolnum0=poolnum1=volnum0=volnum1=snapnum0=snapnum1=clonenum0=clonenum1=0
-        validatelist = list()
+        validatelist = []
         try:
-
-            driver.find_element_by_xpath(".//*[@id='sidebar-menu']/ul/li[4]/a").click()
+            # driver.find_element_by_xpath(".//*[@id='sidebar-menu']/ul/li[4]/a").click()
+            time.sleep(3)
             driver.find_element_by_link_text("Volume").click()
-            sleep(1)
+            time.sleep(2)
             driver.find_element_by_xpath("//div[2]/button").click()
-            sleep(1)
-
-            # Select(driver.find_element_by_name("pool")).select_by_value(pool_name)
-            # sleep(1)
+            time.sleep(1)
             driver.find_element_by_name("volumename").clear()
             volume_name=random_key(15)
             driver.find_element_by_name("volumename").send_keys(volume_name)
-            sleep(1)
-            # Enable Thin Provision
+            time.sleep(1)
             driver.find_element_by_xpath("//form/div[4]/div[1]/input").clear()
-
             driver.find_element_by_xpath("//form/div[4]/div[1]/input").send_keys(volume_capacity)
-            sleep(1)
-            # driver.find_element_by_css_selector("div.row.m-t-20").click()
+            time.sleep(1)
             volumesector=random.choice(volume_sector)
+            print "set sector =====",volumesector
             Select(driver.find_element_by_name("sectorsize")).select_by_visible_text(volumesector)
-            sleep(1)
-            # driver.find_element_by_css_selector("option[value=\"string:1KB\"]").click()
+            time.sleep(1)
             blocksize = random.choice(block_size)
+            print 'set block ===',blocksize
             Select(driver.find_element_by_name("blocksize")).select_by_visible_text(blocksize)
-            sleep(1)
+            time.sleep(1)
             sync_mode = ["Always", "Standard", "Disabled"]
             syncmode=random.choice(sync_mode)
             Select(driver.find_element_by_name("syncmode")).select_by_visible_text(syncmode)
-            sleep(1)
+            time.sleep(1)
             driver.find_element_by_xpath("//button[@type='submit']").click()
             for i in range(60):
                 try:
@@ -91,21 +68,19 @@ class CreateVolume(unittest.TestCase):
                 time.sleep(1)
             else:
                 self.fail("time out")
-
             validatelist.append(VerifyWords(driver, (volume_name, blocksize)))
-
             driver.find_element_by_xpath("//pr-gear-button/div/a").click()
             driver.find_element_by_link_text("View Detail").click()
-            sleep(1)
+            time.sleep(1)
             validatelist.append(VerifyWords(driver, (volume_name, blocksize, volumesector)))
-
-
+            # print "list============",
+            # tttt = VerifyWords(driver, (volume_name, blocksize, volumesector))
+            # print "tttt======",tttt
         except:
             driver.get_screenshot_as_file("snapshot at " +
                                           re.sub(':', '.', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(
                                               time.time()))) + "create_delete_multi" + "." + "png")
             tolog("Error: please refer to the screen-shot in the folder")
-
         for val in validatelist:
             if val:
                 Failflag=True
