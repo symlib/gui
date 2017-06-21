@@ -32,7 +32,8 @@ class ISCSIPortalDel(unittest.TestCase):
             portal_count = 0
         else:
             portal_count = len(driver.find_element_by_xpath("//table/tbody").text.split("\n"))
-        print "Portal list count is :",portal_count
+        #print "Portal list count is :",portal_count
+        tolog("Start to Delete all Portal entries")
         if "No iSCSI Portal detected" in str(driver.find_element_by_xpath("//table/tbody").text.split("\n")):
             tolog("No iSCSI Portal detected")
         else:
@@ -42,19 +43,21 @@ class ISCSIPortalDel(unittest.TestCase):
                 driver.find_element_by_link_text("Delete").click()
                 time.sleep(1)
                 driver.find_element_by_name("name").clear()
-                time.sleep(1)
                 driver.find_element_by_name("name").send_keys("confirm")
-                time.sleep(1)
+                time.sleep(0.5)
                 driver.find_element_by_xpath("//button[@type='submit']").click()
-                portal_count -= 1
-                time.sleep(3)
-            if "No iSCSI Portal detected" in str(driver.find_element_by_xpath("//table/tbody").text.split("\n")):
-                tolog("All iSCSI Portal entry were deleted!")
-                ValError.append("pass")
-            else:
-                Failflag = True
-                tolog("Failed to delete All iSCSI Portal entry!")
-                ValError.append("fail")
+                time.sleep(1)
+                if "Portal was deleted successfully." in driver.find_element_by_xpath("//body/div/div/div[5]/div/div").text:
+                    portal_count -= 1
+                    time.sleep(3)
+                elif "Operation failed as iSNS client actives" in driver.find_element_by_xpath("//body/div/div/div[5]/div/div").text:
+                    tolog(driver.find_element_by_xpath("//body/div/div/div[5]/div/div").text)
+                    ValError.append("pass")
+                    break
+                else:
+                    tolog(driver.find_element_by_xpath("//body/div/div/div[5]/div/div").text)
+                    ValError.append("fail")
+
             for val in ValError:
                 if val == "fail":
                     Failflag = True

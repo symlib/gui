@@ -27,14 +27,15 @@ class ISCSIPortalAddVlan(unittest.TestCase):
         time.sleep(2)
         driver.find_element_by_link_text("iSCSI Management").click()
         time.sleep(2)
-        driver.find_element_by_link_text("Portal").click()
+        driver.find_element_by_link_text("Trunk").click()
         time.sleep(2)
         trunk_id = []
         for t in driver.find_element_by_xpath("//table/tbody").text.split("\n"):
-            trunk_id.append(t[0])
+            trunk_id.append(str(t.split()[0]))
         time.sleep(2)
         driver.find_element_by_link_text("Portal").click()
         time.sleep(2)
+        tolog("Start to Add Portal, specify Trunk type")
         if "No iSCSI Portal detected." in driver.find_element_by_xpath("//table/tbody").text:
             portal_entry1 = 0
         else:
@@ -56,7 +57,7 @@ class ISCSIPortalAddVlan(unittest.TestCase):
             if not driver.find_element_by_xpath("//form/div[5]/div[1]/label").is_selected():
                 driver.find_element_by_xpath("//form/div[5]/div[1]/label").click()
             driver.find_element_by_xpath("//button[@type='submit']").click()
-            time.sleep(5)
+            time.sleep(6)
             portal_entry2 = len(driver.find_element_by_xpath("//table/tbody").text.split("\n"))
             if portal_entry2 > portal_entry1:
                 tolog("Add iSCSI Portal,Associated Port Type:Trunk, succeed")

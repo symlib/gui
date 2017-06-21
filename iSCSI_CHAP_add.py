@@ -29,7 +29,7 @@ class ISCSIChapAdd(unittest.TestCase):
         driver.find_element_by_link_text("iSCSI Management").click()
         time.sleep(2)
         driver.find_element_by_xpath("//li[9]/ul/li[7]/a").click()
-        time.sleep(2)
+        time.sleep(3)
         tolog("Start to add iSCSI CHAP entry")
         if "No iSCSI CHAP detected." in driver.find_element_by_xpath("//table/tbody").text:
             chap_count = 0
@@ -38,37 +38,42 @@ class ISCSIChapAdd(unittest.TestCase):
         driver.find_element_by_xpath("//button[@title='Add iSCSI CHAP Information']").click()
         time.sleep(2)
         chap_name = ""
-        tep = "0123456789abcdefghijklmnopqrstuvwxyz_"
-        name_len = random.randint(1,31)
+        tep = "0123456789abcdefghijklmnopqrstuvwxyz_:+@/()"
+        name_len = random.randint(1,223)
         for i in range(name_len):
             chap_name += random.choice(tep)
         driver.find_element_by_name("chapName").clear()
         driver.find_element_by_name("chapName").send_keys(chap_name)
-        if "Local" in driver.find_element_by_xpath("//table/tbody").text.split("\n"):
-            chap_type = "Peer"
-        else:
-            chap_type = random.choice(["Local", "Peer"])
-        Select(driver.find_element_by_xpath("//form/div[2]/div/select")).select_by_visible_text(chap_type)
+        chap_type = random.choice(["Local", "Peer"])
+        Select(driver.find_element_by_xpath("//select[@name='type']")).select_by_visible_text(chap_type)
         time.sleep(1)
-        driver.find_element_by_xpath("//form/div[3]/div[1]/input").clear()
+        driver.find_element_by_xpath("//input[@name='secret']").clear()
         chap_secret = ""
         chap_secret_len = random.randint(12,16)
         for n in range(chap_secret_len):
             chap_secret += chr(random.randint(32,126))
-        #print "chap_secret ------",chap_secret,chap_secret_len
-        driver.find_element_by_xpath("//form/div[3]/div[1]/input").send_keys(chap_secret)
-        driver.find_element_by_xpath("//form/div[4]/div[1]/input").clear()
-        driver.find_element_by_xpath("//form/div[4]/div[1]/input").send_keys(chap_secret)
+        driver.find_element_by_xpath("//input[@name='secret']").send_keys(chap_secret)
+        driver.find_element_by_xpath("//input[@name='confirmsecret']").clear()
+        driver.find_element_by_xpath("//input[@name='confirmsecret']").send_keys(chap_secret)
         time.sleep(1)
         driver.find_element_by_xpath("//button[@type='submit']").click()
-        time.sleep(5)
-        chap_count_new = len(driver.find_element_by_xpath("//table/tbody").text.split("\n"))
-        if chap_count_new > chap_count:
+        time.sleep(1)
+        if "Failed to add chap:"in driver.find_element_by_xpath("//body/div/div/div[5]/div/div").text:
+            tolog(driver.find_element_by_xpath("//body/div/div/div[5]/div/div").text)
             ValError.append("pass")
-            tolog("Add iSCSI CHAP entry, PASS")
+        elif "CHAP was add successfully." in driver.find_element_by_xpath("//body/div/div/div[5]/div/div").text:
+            time.sleep(3)
+            chap_count_new = len(driver.find_element_by_xpath("//table/tbody").text.split("\n"))
+            if chap_count_new > chap_count:
+                ValError.append("pass")
+                tolog("Add iSCSI CHAP entry, PASS")
+            else:
+                ValError.append("fail")
+                tolog("Add iSCSI CHAP entry, FAIL")
         else:
+            tolog(driver.find_element_by_xpath("//body/div/div/div[5]/div/div").text)
             ValError.append("fail")
-            tolog("Add iSCSI CHAP entry, FAIL")
+
         for val in ValError:
             if val == "fail":
                 Failflag = True
@@ -76,13 +81,10 @@ class ISCSIChapAdd(unittest.TestCase):
             tolog(Fail)
         else:
             tolog(Pass)
-        chap_entrys = driver.find_element_by_xpath("//table/tbody").text.split("\n")
+        #chap_entrys = driver.find_element_by_xpath("//table/tbody").text.split("\n")
         #print "chap_entrys----",chap_entrys
-        chap_index = str(chap_entrys[-1]).split()[0]
-        return chap_index,chap_name,chap_secret
-
-
-
+        #chap_index = str(chap_entrys[-1]).split()[0]
+        #return chap_index,chap_name,chap_secret
 
     def is_element_present(self, how, what):
         try:

@@ -33,6 +33,7 @@ class ISCSITrunkAdd(unittest.TestCase):
             tru_list_1 = 0
         else:
             tru_list_1 = len(driver.find_element_by_xpath("//table/tbody").text.split("\n"))
+        tolog("Start to Create iSCSI Trunk")
         driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
         time.sleep(2)
         mesg = "To create trunk, please delete iSCSI Portal(s) first. At least TWO unused ports are required to create trunk."
@@ -80,6 +81,7 @@ class ISCSITrunkAdd(unittest.TestCase):
                 tolog("Add iSCSI Trunk has error")
                 ValError.append("fail")
             time.sleep(2)
+
         for val in ValError:
             if val == "fail":
                 Failflag = True

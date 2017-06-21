@@ -68,6 +68,7 @@ class IscsiTargetMod(unittest.TestCase):
             driver.find_element_by_name("datadigest").click()
             datadigest = "Enable"
         sleep(1)
+        '''
         if driver.find_element_by_name("unichapauth").is_selected():
             driver.find_element_by_name("unichapauth").send_keys(Keys.SPACE)
             unichapauth = "Disable"
@@ -75,14 +76,18 @@ class IscsiTargetMod(unittest.TestCase):
             driver.find_element_by_name("unichapauth").click()
             unichapauth = "Enable"
         sleep(1)
+        '''
         driver.find_element_by_xpath("//button[@type='submit']").click()
         sleep(4)
+        driver.find_element_by_xpath("//a/small[1]").click()
+        time.sleep(3)
         target_info = str(driver.find_element_by_xpath("//div[3]/div[2]/div/div/div[2]/div/div/div").text).split("\n")
         target_dict = {}
         for i in range(len(target_info)):
             if i % 2 == 0:
                 target_dict[target_info[i]] =target_info[i+1]
         print "target dict is:", target_dict
+
         if target_dict.get("Alias:") == target_alias:
             tolog('iscsi target alias setting, PASS')
             ValError.append("pass")
@@ -107,13 +112,14 @@ class IscsiTargetMod(unittest.TestCase):
         else:
             ValError.append("fail")
             tolog('iscsi target "Data Digest" setting, FAIL')
+        '''
         if target_dict.get("Uni-directional CHAP Authentication:") == unichapauth:
             tolog('iscsi target "Uni - directional CHAP Authentication" setting, PASS')
             tolog("pass")
         else:
             ValError.append("fail")
             tolog('iscsi target "Uni - directional CHAP Authentication" setting, FAIL')
-
+        '''
         for val in ValError:
             if val == "fail":
                 Failflag = True

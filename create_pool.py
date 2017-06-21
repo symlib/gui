@@ -76,7 +76,7 @@ class CreatePool(unittest.TestCase):
                     raid = random.choice(["RAID0", "RAID5", "RAID6", "RAID50", "RAID60"])
                 elif len(disklist) > 9 and len(disklist) % 2 == 0:
                     raid = random.choice(["RAID0", "RAID5", "RAID6", "RAID10","RAID50", "RAID60"])
-                print "raid ,is,,,,===",raid, type(raid)
+                #print "raid ,is,,,,===",raid, type(raid)
                 if raid == "RAID0":
                     disks = random.sample(disklist, 1)
                 elif raid == "RAID1":
