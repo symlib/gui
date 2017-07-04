@@ -40,7 +40,7 @@ class CreatePool(unittest.TestCase):
         block_size = ['512 Bytes', '1 KB', '2 KB', '4 KB', '8 KB', '16 KB', '32 KB', '64 KB', '128 KB']
         volume_sector = ['512 Bytes', '1 KB', '2 KB', '4 KB']
 
-        raid_level = ["RAID0", "RAID1", "RAID5", "RAID6", "RAID1", "RAID5", "RAID6"]
+        raid_level = ["RAID0", "RAID1", "RAID5", "RAID6", "RAID10", "RAID50", "RAID60"]
 
         tolog("Start to create pool with different settings")
         driver.find_element_by_link_text("Pool").click()
