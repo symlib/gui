@@ -37,7 +37,6 @@ class ExtendPool(unittest.TestCase):
         #disklist = [1, 3, 4, 5, 6, 8, 9, 10, 11, 12]
         disklist = ["1", "5", "6", "9", "10"]
         diskrem = [4, 8, 11, 12]
-
         # block_size = ['512 Bytes', '1 KB', '2 KB', '4 KB', '8 KB', '16 KB', '32 KB', '64 KB', '128 KB']
         # volume_sector = ['512 Bytes', '1 KB', '2 KB', '4 KB']
 
@@ -137,14 +136,14 @@ class ExtendPool(unittest.TestCase):
         verifydiskstr = str(verifydisk).replace("[", "").replace("]", "").replace(" ", "")
         validatelist.append(VerifyWords(driver, (pool_name, raid, stripsize, sectorsize, verifydiskstr)))
 
-        tolog("Start to extend pool from pool list")
+        tolog("Start to extend pool from pool")
         sleep(4)
-        driver.find_element_by_xpath("//li/ul/li/a/span/span").click()
-        sleep(1)
-        driver.find_element_by_css_selector("input[type=\"checkbox\"]").click()
+
+        driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()
+        sleep(2)
+        driver.find_element_by_css_selector("a > small.ng-binding").click()
         sleep(1)
         driver.find_element_by_xpath("(//button[@type='button'])[2]").click()
-
         diskrem=random.sample(diskrem, len(disks))
         diskrem.sort()
 
@@ -155,8 +154,9 @@ class ExtendPool(unittest.TestCase):
         for disk in disklistrem:
             sleep(1)
             driver.find_element_by_xpath("//div[2]/div/div/ul/li[%s]" % (str(disk))).click()
-        # li3 is a location that not contain disk, clicking li3 leads the hover information upwards
-        # so the submit button can be clicked
+        #
+        # # li3 is a location that not contain disk, clicking li3 leads the hover information upwards
+        # # so the submit button can be clicked
         # driver.find_element_by_xpath("//div[2]/div/div/ul/li3").click()
         # sleep(2)
         driver.find_element_by_xpath("//button[@type='submit']").click()
@@ -184,11 +184,12 @@ class ExtendPool(unittest.TestCase):
         verifydiskstr = verifydiskstr+","+str(diskrem).replace("[", "").replace("]", "").replace(" ", "")
         validatelist.append(VerifyWords(driver, (pool_name, raid, stripsize, sectorsize, verifydiskstr)))
         sleep(2)
-        driver.find_element_by_xpath("//li/ul/li/a/span/span").click()
+        driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()
         sleep(2)
-        driver.find_element_by_css_selector("input[type=\"checkbox\"]").click()
-        sleep(2)
+        driver.find_element_by_css_selector("a > small.ng-binding").click()
+        sleep(1)
         driver.find_element_by_xpath("(//button[@type='button'])[1]").click()
+
         time.sleep(2)
         driver.find_element_by_name("name").clear()
         driver.find_element_by_name("name").send_keys("confirm")
@@ -205,7 +206,6 @@ class ExtendPool(unittest.TestCase):
             time.sleep(1)
         else:
             self.fail("time out")
-
         for val in validatelist:
             if val:
                 Failflag=True

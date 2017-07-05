@@ -137,13 +137,16 @@ class ExtendPool(unittest.TestCase):
         verifydiskstr = str(verifydisk).replace("[", "").replace("]", "").replace(" ", "")
         validatelist.append(VerifyWords(driver, (pool_name, raid, stripsize, sectorsize, verifydiskstr)))
 
-        tolog("Start to extend pool from pool list")
+        tolog("Start to extend pool from gear button")
         sleep(4)
+        validatelist.append(VerifyWords(driver, (pool_name, raid, stripsize, sectorsize, verifydiskstr)))
+
         driver.find_element_by_xpath("//li/ul/li/a/span/span").click()
-        sleep(1)
-        driver.find_element_by_css_selector("input[type=\"checkbox\"]").click()
-        sleep(1)
-        driver.find_element_by_xpath("(//button[@type='button'])[2]").click()
+        sleep(2)
+        driver.find_element_by_xpath("//pr-gear-button/div/a").click()
+        sleep(2)
+
+        driver.find_element_by_link_text("Extend Pool").click()
 
         diskrem=random.sample(diskrem, len(disks))
         diskrem.sort()
@@ -155,8 +158,8 @@ class ExtendPool(unittest.TestCase):
         for disk in disklistrem:
             sleep(1)
             driver.find_element_by_xpath("//div[2]/div/div/ul/li[%s]" % (str(disk))).click()
-        # li3 is a location that not contain disk, clicking li3 leads the hover information upwards
-        # so the submit button can be clicked
+        # # li3 is a location that not contain disk, clicking li3 leads the hover information upwards
+        # # so the submit button can be clicked
         # driver.find_element_by_xpath("//div[2]/div/div/ul/li3").click()
         # sleep(2)
         driver.find_element_by_xpath("//button[@type='submit']").click()
@@ -175,9 +178,11 @@ class ExtendPool(unittest.TestCase):
 
         sleep(5)
         validatelist.append(VerifyWords(driver, (pool_name, raid)))
+        # sleep(2)
+        # driver.find_element_by_xpath("//li/ul/li/a/span/span").click()
         sleep(5)
         driver.find_element_by_xpath("//pr-gear-button/div/a").click()
-        sleep(5)
+        sleep(2)
 
         driver.find_element_by_link_text("View Detail").click()
         sleep(3)
@@ -186,9 +191,11 @@ class ExtendPool(unittest.TestCase):
         sleep(2)
         driver.find_element_by_xpath("//li/ul/li/a/span/span").click()
         sleep(2)
-        driver.find_element_by_css_selector("input[type=\"checkbox\"]").click()
+        driver.find_element_by_xpath("//pr-gear-button/div/a").click()
         sleep(2)
-        driver.find_element_by_xpath("(//button[@type='button'])[1]").click()
+
+        driver.find_element_by_link_text("Delete").click()
+
         time.sleep(2)
         driver.find_element_by_name("name").clear()
         driver.find_element_by_name("name").send_keys("confirm")
@@ -205,7 +212,6 @@ class ExtendPool(unittest.TestCase):
             time.sleep(1)
         else:
             self.fail("time out")
-
         for val in validatelist:
             if val:
                 Failflag=True
