@@ -26,7 +26,7 @@ def loginFirefox():
     driver.find_element_by_name('password').send_keys('password')
     sleep(0.5)
     driver.find_element_by_xpath('//*[@id="frame"]/div/div[2]/form/div[4]/button').click()
-    sleep(6)
+    sleep(2)
     return driver
 
 def loginIE():
