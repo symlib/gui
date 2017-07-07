@@ -66,7 +66,7 @@ def strip_tags(html):
 
 
 if __name__ == "__main__":
-    lname = "hulda"
+    lname = "jacky"
     jacky = '2e99a3e8bb235adb1c0c06c7e17b13a2'
     zach="1e2a6e7af20e5c274174ff68e2ba63a2"
     hulda='a11277ff4b69a6152210e9923ab3796b'
@@ -81,7 +81,7 @@ if __name__ == "__main__":
         new_adminjl_key = robot
     # # new_testlink="http://192.168.252.175/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
     #new_ip_testlink = "http://10.10.10.3/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
-    new_ip_testlink = "http://192.168.252.175/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
+    new_ip_testlink = "http://192.168.252.104/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
     tls = testlink.TestlinkAPIClient(new_ip_testlink, new_adminjl_key)
     # test case notes
     Notes = 'testlink.notes'
@@ -151,7 +151,7 @@ if __name__ == "__main__":
                                                     string.replace(string.replace(tcsteps[i]['actions'], '<p>\n\t', ''), '</p>', ''),
                                                     '&quot;', '"')).replace("\n","")
                                                 print stepstr
-                                                os.system("Python.exe " + stepstr + '.py')
+                                                os.system("python " + stepstr + '.py')
                                                 fp= open(Notes,'r')
                                                 note=fp.read()
                                                 fp.close()

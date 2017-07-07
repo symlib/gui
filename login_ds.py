@@ -10,10 +10,11 @@ import re
 #This test is use Firefox browser
 
 def loginFirefox():
-    fp = webdriver.FirefoxProfile("C:/Users/hulda/AppData/Roaming/Mozilla/Firefox/Profiles/d8ot5jng.firefox")
-    fp.accept_untrusted_certs = True
-    driver = webdriver.Firefox(firefox_profile=fp)
-    subsys_url = "https://10.84.2.116"
+    #fp = webdriver.FirefoxProfile("C:/Users/hulda/AppData/Roaming/Mozilla/Firefox/Profiles/d8ot5jng.firefox")
+    #fp.accept_untrusted_certs = True
+    #driver = webdriver.Firefox(firefox_profile=fp)
+    driver = webdriver.Firefox()
+    subsys_url = "https://10.84.2.164"
     driver.implicitly_wait(30)
     driver.get(subsys_url)
     sleep(0.5)
