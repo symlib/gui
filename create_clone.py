@@ -28,6 +28,8 @@ class CreateClone(unittest.TestCase):
         driver = self.driver
         validatelist = []
         try:
+            tolog("Start to create clone from snapshot list")
+
             driver.find_element_by_xpath("//div[2]/div/ul/li[4]/a/span").click()
             sleep(1)
             driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()
@@ -55,17 +57,149 @@ class CreateClone(unittest.TestCase):
                 time.sleep(1)
             else:
                 self.fail("time out")
+
             driver.find_element_by_xpath("//td[2]/a/i").click()
-            driver.find_element_by_xpath("//tr[3]/td[6]/pr-gear-button/div/a/b").click()
+            # click plus sign to get the clone name
             sleep(1)
-            driver.find_element_by_xpath("//tr[3]/td[6]/pr-gear-button/div/ul/li/a").click()
+            tolog("Verify the clone name in clone list")
+            validatelist.append(VerifyWords(driver, ({clone_name})))
             sleep(1)
-            validatelist.append(VerifyWords(driver, (clone_name,"volume")))
+
+            # click volume to show latest clone for the volume
+            tolog("Verify the latest clone name in volume page")
+            driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()
+            driver.find_element_by_xpath("//a/small").click()
+            sleep(1)
+            validatelist.append(VerifyWords(driver, ({clone_name})))
+
+            # to create clone from gear button
+            driver.find_element_by_xpath("//button[4]").click()
+            sleep(1)
+            tolog("Start to create clone from gear button")
+            driver.find_element_by_xpath("//pr-gear-button/div/a").click()
+            sleep(1)
+            driver.find_element_by_link_text("Create Clone").click()
+            sleep(1)
+            clone_name = random_key(15)
+            driver.find_element_by_name("name").send_keys(clone_name)
+            sleep(1)
+            driver.find_element_by_xpath("//button[@type='submit']").click()
+
+            driver.find_element_by_xpath("//td[2]/a/i").click()
+            # click plus sign to get the clone name
+            sleep(1)
+            tolog("Verify the clone name in clone list")
+            validatelist.append(VerifyWords(driver, ({clone_name})))
+            sleep(1)
+
+            # click volume to show latest clone for the volume
+            tolog("Verify the latest clone name in volume page")
+            driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()
+            sleep(1)
+            driver.find_element_by_xpath("//a/small").click()
+            sleep(1)
+            validatelist.append(VerifyWords(driver, ({clone_name})))
+
+            tolog("Modify clone name")
+            driver.find_element_by_xpath("//div[2]/div/ul/li[3]/a/span").click()
+            sleep(1)
+            driver.find_element_by_xpath("//div[2]/div/ul/li[4]/a/span").click()
+            sleep(1)
+            driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()
+            sleep(1)
+            driver.find_element_by_xpath("//button[4]").click()
+            sleep(1)
+            driver.find_element_by_xpath("//td[2]/a/i").click()
+            sleep(1)
+            driver.find_element_by_xpath("//tr[3]/td[7]/pr-gear-button/div/a").click()
+            sleep(1)
+            driver.find_element_by_link_text("Modify Clone").click()
+            driver.find_element_by_name("name").clear()
+            modifiedname=random_key(10)
+            driver.find_element_by_name("name").send_keys(modifiedname)
+            sleep(1)
+            driver.find_element_by_xpath("//div[3]/div/div/div/div[2]/button").click()
+            sleep(1)
+            driver.find_element_by_xpath("//td[2]/a/i").click()
+            sleep(1)
+            validatelist.append(VerifyWords(driver, ({modifiedname})))
+
+            tolog("Export and Un-export clone")
+            sleep(1)
+            driver.find_element_by_link_text("Volume").click()
+            sleep(1)
+            driver.find_element_by_xpath("//pr-gear-button/div/a").click()
+            sleep(1)
+            driver.find_element_by_link_text("Snapshot & Clone").click()
+            sleep(2)
+
+
+
+            for i in range(3):
+                sleep(1)
+                driver.find_element_by_xpath("//td[2]/a/i").click()
+                if driver.find_element_by_xpath("//tr[3]/td[3]").text == "Exported":
+
+                    # driver.find_element_by_xpath("//div[2]/div/ul/li[3]/a/span").click()
+                    # sleep(1)
+                    # driver.find_element_by_xpath("//div[2]/div/ul/li[4]/a/span").click()
+                    # sleep(1)
+                    # driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()
+                    # sleep(1)
+                    # driver.find_element_by_xpath("//button[4]").click()
+                    # sleep(1)
+                    # driver.find_element_by_xpath("//td[2]/a/i").click()
+                    sleep(1)
+                    driver.find_element_by_xpath("//tr[3]/td[7]/pr-gear-button/div/a").click()
+                    sleep(1)
+                    # driver.find_element_by_link_text("Unexport Clone").click()
+
+                    driver.find_element_by_link_text("Un-export Clone").click()
+                    for i in range(60):
+                        try:
+                            if re.search(r"^[\s\S]*Clone was un-exported successfully.[\s\S]*$",
+                                         driver.find_element_by_css_selector("BODY").text):
+                                tolog("Clone was un-exported successfully.");
+                                break
+                        except:
+                            pass
+                        time.sleep(1)
+                    else:
+                        self.fail("time out")
+
+                    if driver.find_element_by_xpath("//tr[3]/td[3]").text == "Un-Exported":
+                        tolog("Un-exported successfully.")
+                else:
+
+                    sleep(1)
+                    driver.find_element_by_xpath("//tr[3]/td[7]/pr-gear-button/div/a").click()
+                    sleep(1)
+                    # driver.find_element_by_link_text("Unexport Clone").click()
+
+                    driver.find_element_by_link_text("Export Clone").click()
+                    sleep(1)
+                    for i in range(60):
+                        try:
+                            if re.search(r"^[\s\S]*Clone was exported successfully.[\s\S]*$",
+                                         driver.find_element_by_css_selector("BODY").text):
+                                tolog("Clone was exported successfully.");
+                                break
+                        except:
+                            pass
+                        time.sleep(1)
+                    else:
+                        self.fail("time out")
+
+                    if driver.find_element_by_xpath("//tr[3]/td[3]").text == "Exported":
+                        tolog("Exported successfully.")
+
+
         except:
             driver.get_screenshot_as_file("snapshot at " +
                                           re.sub(':', '.', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(
                                               time.time()))) + "create_delete_multi" + "." + "png")
             tolog("Error: please refer to the screen-shot in the folder")
+            validatelist.append("True")
         for val in validatelist:
             if val:
                 Failflag = True

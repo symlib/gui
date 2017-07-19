@@ -22,6 +22,6 @@ def VerifyWords(driver, wordlist):
         else:
             tolog(each + ' is not verified.')
             ValidationError = True
-            break
+
     return ValidationError
 

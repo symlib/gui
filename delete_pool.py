@@ -49,7 +49,7 @@ class DeletePool(unittest.TestCase):
             sleep(1)
             driver.find_element_by_xpath("//div[2]/div/ul/li[3]/a/span").click()
             sleep(1)
-            driver.find_element_by_xpath("(//input[@type='checkbox'])[2]").click()
+            driver.find_element_by_xpath("(//input[@type='checkbox'])[1]").click()
             sleep(1)
             driver.find_element_by_xpath("//button[@type='button']").click()
             sleep(1)

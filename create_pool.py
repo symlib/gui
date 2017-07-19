@@ -33,7 +33,7 @@ class CreatePool(unittest.TestCase):
         sector_size = ["512 Bytes", "1 KB", "2 KB", "4 KB"]
 
         Prefer_ctrl = [1, 2]
-        disklist = ["1", "3", "4", "5", "6", "8", "9", "10", "11", "12"]
+        disklist = ["1","2", "3", "4", "6","7", "8", "9","10","11", "12","13","15","16"]
         # disklist = [1, 3, 4, 5, 6, 8, 9, 10, 11, 12]
 
 
@@ -117,6 +117,7 @@ class CreatePool(unittest.TestCase):
         validatelist.append(VerifyWords(driver, (pool_name, raid)))
 
         driver.find_element_by_xpath("//pr-gear-button/div/a").click()
+        sleep(2)
         driver.find_element_by_link_text("View Detail").click()
         sleep(2)
         validatelist.append(VerifyWords(driver, (pool_name, raid, stripsize, sectorsize)))

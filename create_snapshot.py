@@ -223,9 +223,6 @@ class CreateSnapshot(unittest.TestCase):
             validatelist.append(VerifyWords(driver, ({"Snapshot "+snapshot_name})))
 
 
-
-
-
         except:
             driver.get_screenshot_as_file("snapshot at " +
                                           re.sub(':', '.', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(
