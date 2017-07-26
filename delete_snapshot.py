@@ -21,7 +21,7 @@ Fail="'result': 'f'"
 class DeleteSnapshot(unittest.TestCase):
 
 
-    def test_create_snapshot(self):
+    def test_delete_snapshot(self):
         Failflag = False
         self.driver = loginFirefox()
         # self.driver.implicitly_wait(30)
@@ -30,19 +30,26 @@ class DeleteSnapshot(unittest.TestCase):
         driver = self.driver
         validatelist = list()
         try:
-            sleep(1)
             driver.find_element_by_xpath("//div[2]/div/ul/li[4]/a/span").click()
             sleep(1)
             driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()
             sleep(1)
             driver.find_element_by_xpath("(//button[@type='button'])[4]").click()
             sleep(1)
-            driver.find_element_by_xpath("(//input[@type='checkbox'])[2]").click()
+            # firstly, check if there are 6 clones included.
+
+
+
+            tolog("Delete Snapshot from gear button")
+
+
+            driver.find_element_by_xpath("//tr[2]/td[7]/pr-gear-button/div/a/b").click()
             sleep(1)
-            driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
+            driver.find_element_by_xpath("//tr[2]/td[7]/pr-gear-button/div/ul/li[5]/a").click()
             sleep(1)
             driver.find_element_by_name("name").clear()
             driver.find_element_by_name("name").send_keys("confirm")
+            sleep(1)
             driver.find_element_by_xpath("//button[@type='submit']").click()
 
             for i in range(60):
@@ -57,8 +64,64 @@ class DeleteSnapshot(unittest.TestCase):
                 time.sleep(1)
             else:
                 self.fail("time out")
+            sleep(1)
+
+            tolog("Delete Snapshot from selection")
+
+            sleep(1)
+            driver.find_element_by_xpath("//tr[2]/td[1]/input").click()
+            sleep(1)
+            driver.find_element_by_xpath("//div/div/div/button[3]").click()
+            sleep(1)
+
+            driver.find_element_by_name("name").clear()
+            driver.find_element_by_name("name").send_keys("confirm")
+            sleep(1)
+            driver.find_element_by_xpath("//button[@type='submit']").click()
+            sleep(2)
+
+            driver.find_element_by_xpath("html/body/div[1]/div/div/div[3]/button").click()
+            sleep(2)
+
+            tolog("Delete clones from multi-selection")
+
+            driver.find_element_by_xpath("//tr[2]/td[1]/input").click()
+            sleep(1)
+            driver.find_element_by_xpath("//tr[3]/td[1]/input").click()
+            sleep(1)
+            driver.find_element_by_xpath("//div/div/div/button[3]").click()
+            sleep(1)
+
+            driver.find_element_by_name("name").clear()
+            driver.find_element_by_name("name").send_keys("confirm")
+            driver.find_element_by_xpath("//button[@type='submit']").click()
+            sleep(2)
+
+            driver.find_element_by_xpath("html/body/div[1]/div/div/div[3]/button").click()
+            sleep(2)
+            # tolog(driver.find_element_by_xpath("//tr[2]/td[2]/small").text)
+
+
+            tolog("Delete Snapshot from delete all clones")
+
+            sleep(1)
+            driver.find_element_by_xpath("//tr[1]/th[1]/input").click()
+
+            sleep(1)
+            driver.find_element_by_xpath("//div/div/div/button[3]").click()
+            sleep(1)
+
+            driver.find_element_by_name("name").clear()
+            driver.find_element_by_name("name").send_keys("confirm")
+            sleep(1)
+            driver.find_element_by_xpath("//button[@type='submit']").click()
+            sleep(2)
+
+            driver.find_element_by_xpath("html/body/div[1]/div/div/div[3]/button").click()
+
 
         except:
+            Failflag = True
             driver.get_screenshot_as_file("snapshot at " +
                                           re.sub(':', '.', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(
                                               time.time()))) + "create_delete_multi" + "." + "png")
