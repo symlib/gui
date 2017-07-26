@@ -30,11 +30,28 @@ class DeleteVolume(unittest.TestCase):
         validatelist = list()
         try:
             sleep(1)
-            driver.find_element_by_xpath("//div[2]/div/ul/li[4]/a").click()
+            tolog("Delete multi-volumes")
+            driver.find_element_by_xpath("//div[2]/div/ul/li[4]/a/span").click()
             sleep(1)
-            driver.find_element_by_xpath("(//input[@type='checkbox'])[2]").click()
+            # driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()
+            # sleep(1)
+            driver.find_element_by_xpath("//tr[1]/th[1]/input").click()
             sleep(1)
-            driver.find_element_by_xpath("//button[@type='button']").click()
+            #print driver.find_element_by_xpath("//pr-button-bar/div/div/div/button[1]").text
+            if driver.find_element_by_xpath("//pr-button-bar/div/div/div/button[1]").is_enabled()==False:
+
+                tolog("Delete multi-volumes is not allowed.")
+            else:
+                tolog("Delete multi-volumes is allowed.")
+                Failflag=True
+
+            tolog("Delete volume from gear button")
+            sleep(1)
+            driver.find_element_by_xpath("//tr[1]/th[1]/input").click()
+            sleep(1)
+            driver.find_element_by_xpath("//tr[2]/td[9]/pr-gear-button/div/a").click()
+            sleep(1)
+            driver.find_element_by_xpath("//tr[2]/td[9]/pr-gear-button/div/ul/li[2]/a").click()
             sleep(1)
             driver.find_element_by_name("name").click()
             sleep(1)
@@ -45,7 +62,7 @@ class DeleteVolume(unittest.TestCase):
                 try:
                     if re.search(r"^[\s\S]*Volume was deleted successfully.[\s\S]*$",
                                  driver.find_element_by_css_selector("BODY").text):
-                        tolog("volume %s was deleted successfully.");
+                        tolog("volume was deleted successfully.");
                         break
                 except:
                     Failflag = True
@@ -53,7 +70,58 @@ class DeleteVolume(unittest.TestCase):
                 time.sleep(1)
             else:
                 self.fail("time out")
+
+            tolog("Delete volume from volume list")
+            sleep(1)
+            driver.find_element_by_xpath("//tr[2]/td[1]/input").click()
+            sleep(1)
+            driver.find_element_by_xpath("//pr-button-bar/div/div/div/button[1]").click()
+            sleep(1)
+            driver.find_element_by_name("name").click()
+            sleep(1)
+            driver.find_element_by_name("name").clear()
+            driver.find_element_by_name("name").send_keys("confirm")
+            driver.find_element_by_xpath("//button[@type='submit']").click()
+            for i in range(60):
+                try:
+                    if re.search(r"^[\s\S]*Volume was deleted successfully.[\s\S]*$",
+                                 driver.find_element_by_css_selector("BODY").text):
+                        tolog("volume was deleted successfully.");
+                        break
+                except:
+                    Failflag = True
+                    pass
+                time.sleep(1)
+            else:
+                self.fail("time out")
+
+            tolog("Delete volume from volume page")
+            sleep(2)
+            driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()
+            sleep(1)
+            driver.find_element_by_xpath("//pr-button-bar/div/div/div/button[1]").click()
+            sleep(1)
+            driver.find_element_by_name("name").click()
+            sleep(1)
+            driver.find_element_by_name("name").clear()
+            driver.find_element_by_name("name").send_keys("confirm")
+            driver.find_element_by_xpath("//button[@type='submit']").click()
+            for i in range(60):
+                try:
+                    if re.search(r"^[\s\S]*Volume was deleted successfully.[\s\S]*$",
+                                 driver.find_element_by_css_selector("BODY").text):
+                        tolog("volume was deleted successfully.");
+                        break
+                except:
+                    Failflag = True
+                    pass
+                time.sleep(1)
+            else:
+                self.fail("time out")
+
+
         except:
+            Failflag = True
             driver.get_screenshot_as_file("snapshot at " +
                                           re.sub(':', '.', time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(
                                               time.time()))) + "create_delete_multi" + "." + "png")
