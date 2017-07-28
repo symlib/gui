@@ -17,7 +17,7 @@ from namegenerator import random_key
 import time
 Pass="'result': 'p'"
 Fail="'result': 'f'"
-
+from poolvolumesnapshotclone_create import *
 class CreatePool(unittest.TestCase):
 
 
@@ -33,8 +33,9 @@ class CreatePool(unittest.TestCase):
         sector_size = ["512 Bytes", "1 KB", "2 KB", "4 KB"]
 
         Prefer_ctrl = [1, 2]
-        disklist = ["1","2", "3", "4", "6","7", "8", "9","10","11", "12","13","15","16"]
-        # disklist = [1, 3, 4, 5, 6, 8, 9, 10, 11, 12]
+        #disklist = ["1","2", "3", "4", "6","7", "8", "9","10","11", "12","13","15","16"]
+        disklist = [1, 3, 4, 5, 6, 8, 9, 10, 11, 12]
+
 
 
         volume_block_size = ['512 Bytes', '1 KB', '2 KB', '4 KB', '8 KB', '16 KB', '32 KB', '64 KB', '128 KB']

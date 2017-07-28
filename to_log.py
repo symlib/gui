@@ -18,7 +18,8 @@ def tolog(strinfo):
             print(strinfo)
         # for testlink steps populate
         fout=open("./testlink.notes","a")
-        fout.write(strinfo+ '\n')
+        fout.write(time.strftime('%Y-%m-%d %H:%M:%S',
+                                      time.localtime(time.time())) + ": "+strinfo+ '\n')
 
         fout.close()
 

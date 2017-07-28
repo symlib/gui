@@ -190,11 +190,11 @@ if __name__ == "__main__":
                                                                               steps=TC_Result_Steps)
                                             print TC_Name + " on " + Platform_Name + " under " + testplan['name'] + " of " + project['name'] +" has been updated to testlink."
                                                     #  upload screenshot attachments if there's any mistake during the execution.
-                                            #ExecutionID=getExecution[0]['id']
-                                            #pngfiles = glob.glob(r'D:\\Hyperion-ds-script\\GUI\\pictu\\*.png')
-                                            # if TC_Result == 'f':
-                                            #     for png in pngfiles:
-                                            #         tls.uploadExecutionAttachment(png, ExecutionID, 'reference screenshot',
-                                            #                                       'reference screenshot')
-                                            #         print 'The ' + png + ' has been uploaded to testlink.'
-                                            #         os.remove(png)
+                                            ExecutionID=getExecution[0]['id']
+                                            pngfiles = glob.glob(r'/git/gui/*.png')
+                                            if TC_Result == 'f':
+                                                 for png in pngfiles:
+                                                     tls.uploadExecutionAttachment(png, ExecutionID, 'reference screenshot',
+                                                                                   'reference screenshot')
+                                                     print 'The ' + png + ' has been uploaded to testlink.'
+                                                     os.remove(png)

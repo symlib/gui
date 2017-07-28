@@ -65,55 +65,6 @@ class DeletePool(unittest.TestCase):
             else:
                 self.fail("time out")
 
-            tolog("Delete pool from gear button")
-
-            sleep(1)
-            driver.find_element_by_xpath("//tr[2]/td[8]/pr-gear-button/div/a").click()
-            sleep(1)
-            driver.find_element_by_xpath("//tr[2]/td[8]/pr-gear-button/div/ul/li[2]/a").click()
-            sleep(1)
-            driver.find_element_by_name("name").click()
-            sleep(1)
-            driver.find_element_by_name("name").clear()
-            driver.find_element_by_name("name").send_keys("confirm")
-            driver.find_element_by_xpath("//button[@type='submit']").click()
-            for i in range(60):
-                try:
-                    if re.search(r"^[\s\S]*Pool was deleted successfully.[\s\S]*$",
-                                 driver.find_element_by_css_selector("BODY").text):
-                        tolog("Pool was deleted successfully.");
-                        break
-                except:
-                    Failflag = True
-                    pass
-                time.sleep(1)
-            else:
-                self.fail("time out")
-
-            tolog("Delete pool from pool page")
-
-            sleep(1)
-            driver.find_element_by_xpath("//div/ul/li[2]/a/span/span").click()
-            sleep(1)
-            driver.find_element_by_xpath("/pr-button-bar/div/div/div/button[1]").click()
-            sleep(1)
-            driver.find_element_by_name("name").click()
-            sleep(1)
-            driver.find_element_by_name("name").clear()
-            driver.find_element_by_name("name").send_keys("confirm")
-            driver.find_element_by_xpath("//button[@type='submit']").click()
-            for i in range(60):
-                try:
-                    if re.search(r"^[\s\S]*Pool was deleted successfully.[\s\S]*$",
-                                 driver.find_element_by_css_selector("BODY").text):
-                        tolog("Pool was deleted successfully.");
-                        break
-                except:
-                    Failflag = True
-                    pass
-                time.sleep(1)
-            else:
-                self.fail("time out")
         except:
             Failflag = True
             driver.get_screenshot_as_file("snapshot at " +
